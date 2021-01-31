@@ -14,15 +14,6 @@
         <mainClass>fr.miage.toulouse.l3.gestiondesetudiants.MainApp</mainClass>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-csv</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-    </dependencies>
-    
-    
     <organization>
         <!-- Used as the 'Vendor' for JNLP generation -->
         <name>Your Organisation</name>
