@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.miage.toulouse.l3.gestiondesetudiants.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="554.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="fr.miage.toulouse.l3.gestiondesetudiants.FXMLController">
     <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <MenuBar layoutY="3.0" prefHeight="22.0" prefWidth="554.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="25.0" layoutY="46.0" prefHeight="65.0" prefWidth="505.0" text="Bienvenue sur votre application de gestion des etudiants, veuillez choisir votre profil :" />
+      <Button layoutX="61.0" layoutY="120.0" mnemonicParsing="false" prefHeight="198.0" prefWidth="131.0" text="Button" />
+      <Button layoutX="212.0" layoutY="120.0" mnemonicParsing="false" prefHeight="198.0" prefWidth="131.0" text="Button" />
+      <Button layoutX="362.0" layoutY="120.0" mnemonicParsing="false" prefHeight="198.0" prefWidth="131.0" text="Button" />
     </children>
 </AnchorPane>
