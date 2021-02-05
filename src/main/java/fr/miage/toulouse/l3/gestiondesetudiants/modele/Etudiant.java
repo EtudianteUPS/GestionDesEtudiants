@@ -11,11 +11,11 @@ package fr.miage.toulouse.l3.gestiondesetudiants.modele;
  */
 
 public class Etudiant {
-    private final int id_etudiant;
-    private final String prenom_etudiant;
-    private final String nom_etudiant;
-    private final int id_mention;
-    private final int id_parcours;
+    private  int id_etudiant;
+    private  String prenom_etudiant;
+    private  String nom_etudiant;
+    private  int id_mention;
+    private  int id_parcours;
 
     /**
      *
