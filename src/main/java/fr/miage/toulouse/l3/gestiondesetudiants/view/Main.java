@@ -12,7 +12,15 @@ package fr.miage.toulouse.l3.gestiondesetudiants.view;
 public class Main {
     public static void main (String[] args)
     {
-        DS_ListeEtudiants listeEtudiants = new DS_ListeEtudiants();
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Accueil().setVisible(true);
+            }
+        });
+        
+        //DS_ListeEtudiants listeEtudiants = new DS_ListeEtudiants();
+        DS_DossierEtudiant dossierEtudiants = new DS_DossierEtudiant();
          
     }
 }

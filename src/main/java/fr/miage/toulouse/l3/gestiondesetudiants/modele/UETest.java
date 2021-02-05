@@ -34,11 +34,11 @@ public class UETest {
             UEOuverture theatre = new UEOuverture("OT1", "theatre", 3);
             ArrayList<UE> l = new ArrayList<UE>();
             l.add(maths);
-            UE outilstats = new UE("SOS1", "Outils Statistique", 6, 1, l);
+            //UE outilstats = new UE("SOS1", "Outils Statistique", 6, 1, l);
             
             System.out.println(maths.toString());
             System.out.println(theatre.toString());
-            System.out.println(outilstats.toString());                   
+            //System.out.println(outilstats.toString());                   
                     
         }
         catch (ValeurCreditErronee v){

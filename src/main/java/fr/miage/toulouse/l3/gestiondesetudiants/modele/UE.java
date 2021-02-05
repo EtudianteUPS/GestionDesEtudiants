@@ -16,8 +16,9 @@ public class UE {
     private String id_ue;
     private String nom_ue;
     private int credit_ue;
-    private int id_mention;
-    private ArrayList<UE> prerequis_ue;    
+    private String nom_mention;
+    private String nom_parcours;
+    private ArrayList<UE> prerequis_ue;   
     
     /**
      * Initialisation d'une UE
@@ -46,9 +47,10 @@ public class UE {
      * @param prerequis_ue
      * @throws ValeurCreditErronee 
      */
-    public UE(String id_ue, String nom_ue, int credit_ue, int id_mention, ArrayList<UE> prerequis_ue) throws ValeurCreditErronee{
+    public UE(String id_ue, String nom_ue, int credit_ue, String nom_mention, String nom_parcours, ArrayList<UE> prerequis_ue) throws ValeurCreditErronee{
         this(id_ue,nom_ue, credit_ue);
-        this.id_mention = id_mention;
+        this.nom_mention = nom_mention;
+        this.nom_parcours = nom_parcours;
         this.prerequis_ue = prerequis_ue;
     }
     
@@ -56,7 +58,7 @@ public class UE {
      * @return les caractéristiques de l'ue et, si elle a des prerequis, la liste de ses prerequis
      */
     public String toString(){
-        String str = "Code : " + this.id_ue + ", Libellé : " + this.nom_ue + ", crédit ECTS : " + this.credit_ue + ", code de la mention : " + this.id_mention + '\n';        
+        String str = "Code : " + this.id_ue + ", Libellé : " + this.nom_ue + ", crédit ECTS : " + this.credit_ue + ", nom de la mention : " + this.nom_mention + ", nom du parcours : " + this.nom_parcours+ '\n';        
         if (this.prerequis_ue != null){
             str += "Liste des prérequis nécessaires pour valider l'UE : " + this.nom_ue + '\n';
             for (UE ue : this.prerequis_ue) {
