@@ -14,9 +14,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import au.com.bytecode.opencsv.CSVReader;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -117,8 +119,7 @@ public class DS_ListeEtudiants extends JFrame {
        return data;
    }
     
- 
-    
+
     
     /*public static void main(String args[]) 
     {
