@@ -1,26 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package fr.miage.toulouse.l3.gestiondesetudiants.view;
+package fr.miage.toulouse.l3.gestiondesetudiants.controller;
+
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.S_DossierEtudiant;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- *
- * @author FatimatouCisse
+ * Runner object that load the code and start the application
+ * @author FatimatouCisse, SophiaNachin
  */
 public class Main {
+    /**
+     * Main starter methode or entry point for the Java program
+     * @param args unused
+     */
     public static void main (String[] args)
-    {
+    {      
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Accueil().setVisible(true);
             }
-        });
-        
-        //DS_ListeEtudiants listeEtudiants = new DS_ListeEtudiants();
-        DS_DossierEtudiant dossierEtudiants = new DS_DossierEtudiant();
-         
+        });        
     }
 }
