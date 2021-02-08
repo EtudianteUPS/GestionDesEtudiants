@@ -142,7 +142,7 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="DosButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="165" max="32767" attributes="0"/>
                       <Component id="SearchBarTextField1" min="-2" pref="333" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
@@ -285,28 +285,17 @@
                           <Component id="titlePrenomLabel" min="-2" pref="119" max="-2" attributes="0"/>
                           <Component id="prenomLabel" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="titleNiveauLabel" min="-2" pref="63" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="niveauLabel" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="mentionLabel" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="titleMentionLabel" min="-2" pref="88" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="mentionLabel" pref="151" max="32767" attributes="0"/>
+                          <Component id="titleMentionLabel" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="titleParcoursLabel" min="-2" pref="87" max="-2" attributes="0"/>
                           <Component id="parcoursLabel" min="-2" pref="78" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -317,7 +306,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="titleNomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="titlePrenomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="titleNiveauLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="titleMentionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="titleParcoursLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="titleDossierLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -328,7 +316,6 @@
                           <Component id="numEtudiantLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="nomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="prenomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="niveauLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="mentionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="parcoursLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -415,28 +402,6 @@
                 <Property name="text" type="java.lang.String" value="jLabel3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="titleNiveauLabel">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="16" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="33" red="33" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Niveau"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="niveauLabel">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="33" red="33" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel3"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="titleMentionLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -502,14 +467,14 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="listeUELabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <Component id="jTextField1" min="-2" pref="213" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="listeUELabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -669,7 +634,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable4">
+                <Component class="javax.swing.JTable" name="UeDisponibleJTable">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="11" style="0"/>
@@ -677,16 +642,8 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="0">
-                        <Column editable="true" title="S&#xe9;lection" type="java.lang.Object"/>
-                        <Column editable="true" title="Code id de l&apos;UE" type="java.lang.Object"/>
-                        <Column editable="true" title="Nom UE" type="java.lang.Object"/>
-                        <Column editable="true" title="Cr&#xe9;dits ECTS" type="java.lang.Object"/>
-                        <Column editable="true" title="Mention" type="java.lang.Object"/>
-                        <Column editable="true" title="Parcours" type="java.lang.Object"/>
-                        <Column editable="true" title="Semestre" type="java.lang.Object"/>
-                      </Table>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;&#xa;    },&#xa;    new String [] {&#xa;        &#xa;    }&#xa;)" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">

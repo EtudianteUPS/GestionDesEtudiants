@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -56,8 +57,6 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
         nomLabel = new javax.swing.JLabel();
         titlePrenomLabel = new javax.swing.JLabel();
         prenomLabel = new javax.swing.JLabel();
-        titleNiveauLabel = new javax.swing.JLabel();
-        niveauLabel = new javax.swing.JLabel();
         titleMentionLabel = new javax.swing.JLabel();
         mentionLabel = new javax.swing.JLabel();
         titleParcoursLabel = new javax.swing.JLabel();
@@ -69,7 +68,7 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        UeDisponibleJTable = new javax.swing.JTable();
         inscriptionButton = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
@@ -152,7 +151,7 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DosButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                 .addComponent(SearchBarTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -198,14 +197,6 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
         prenomLabel.setForeground(new java.awt.Color(51, 51, 51));
         prenomLabel.setText("jLabel3");
 
-        titleNiveauLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        titleNiveauLabel.setForeground(new java.awt.Color(51, 51, 51));
-        titleNiveauLabel.setText("Niveau");
-
-        niveauLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        niveauLabel.setForeground(new java.awt.Color(51, 51, 51));
-        niveauLabel.setText("jLabel3");
-
         titleMentionLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         titleMentionLabel.setForeground(new java.awt.Color(51, 51, 51));
         titleMentionLabel.setText("Mention");
@@ -229,8 +220,6 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
         DseLayeredPane1.setLayer(nomLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(titlePrenomLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(prenomLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        DseLayeredPane1.setLayer(titleNiveauLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        DseLayeredPane1.setLayer(niveauLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(titleMentionLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(mentionLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(titleParcoursLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -255,23 +244,15 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titlePrenomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prenomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DseLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(titleNiveauLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addComponent(niveauLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mentionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(DseLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(titleMentionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 11, Short.MAX_VALUE)))
+                    .addComponent(mentionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                    .addComponent(titleMentionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titleParcoursLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(parcoursLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                .addGap(66, 66, 66))
         );
         DseLayeredPane1Layout.setVerticalGroup(
             DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +261,6 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleNomLabel)
                     .addComponent(titlePrenomLabel)
-                    .addComponent(titleNiveauLabel)
                     .addComponent(titleMentionLabel)
                     .addComponent(titleParcoursLabel)
                     .addComponent(titleDossierLabel)
@@ -290,7 +270,6 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
                     .addComponent(numEtudiantLabel)
                     .addComponent(nomLabel)
                     .addComponent(prenomLabel)
-                    .addComponent(niveauLabel)
                     .addComponent(mentionLabel)
                     .addComponent(parcoursLabel))
                 .addGap(29, 29, 29))
@@ -334,22 +313,22 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
             }
         });
 
-        jTable4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTable4.setForeground(new java.awt.Color(51, 51, 51));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        UeDisponibleJTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        UeDisponibleJTable.setForeground(new java.awt.Color(51, 51, 51));
+        UeDisponibleJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Sélection", "Code id de l'UE", "Nom UE", "Crédits ECTS", "Mention", "Parcours", "Semestre"
+
             }
         ));
-        jTable4.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable4.setSelectionBackground(new java.awt.Color(0, 165, 255));
-        jScrollPane4.setViewportView(jTable4);
-        if (jTable4.getColumnModel().getColumnCount() > 0) {
-            jTable4.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable4.getColumnModel().getColumn(3).setPreferredWidth(30);
+        UeDisponibleJTable.setGridColor(new java.awt.Color(204, 204, 204));
+        UeDisponibleJTable.setSelectionBackground(new java.awt.Color(0, 165, 255));
+        jScrollPane4.setViewportView(UeDisponibleJTable);
+        if (UeDisponibleJTable.getColumnModel().getColumnCount() > 0) {
+            UeDisponibleJTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+            UeDisponibleJTable.getColumnModel().getColumn(3).setPreferredWidth(30);
         }
 
         inscriptionButton.setBackground(new java.awt.Color(255, 90, 0));
@@ -384,13 +363,13 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(listeUEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listeUEPanelLayout.createSequentialGroup()
-                        .addComponent(listeUELabel)
-                        .addGap(293, 293, 293))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listeUEPanelLayout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jToggleButton1)
-                        .addGap(65, 65, 65))))
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listeUEPanelLayout.createSequentialGroup()
+                        .addComponent(listeUELabel)
+                        .addGap(283, 283, 283))))
             .addGroup(listeUEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(listeUEPanelLayout.createSequentialGroup()
                     .addGap(62, 62, 62)
@@ -539,9 +518,9 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
         return this.prenomLabel;
     }
     
-    public javax.swing.JLabel getNiveauLabel(){
+    /*public javax.swing.JLabel getNiveauLabel(){
         return this.niveauLabel;
-    }
+    }*/
     
     public javax.swing.JLabel getMentionLabel(){
         return this.mentionLabel;
@@ -549,6 +528,10 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
     
     public javax.swing.JLabel getParcoursLabel(){
         return this.parcoursLabel;
+    }
+
+    public JTable getUeDisponibleJTable() {
+        return UeDisponibleJTable;
     }
     
     
@@ -594,6 +577,7 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
     private javax.swing.JMenu HelpMenu1;
     private javax.swing.JButton InsButton;
     private javax.swing.JTextField SearchBarTextField1;
+    private javax.swing.JTable UeDisponibleJTable;
     private javax.swing.JMenu ViewMenu2;
     private javax.swing.JButton inscriptionButton;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -605,20 +589,17 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel listeUELabel;
     private javax.swing.JPanel listeUEPanel;
     private javax.swing.JLabel mentionLabel;
-    private javax.swing.JLabel niveauLabel;
     private javax.swing.JLabel nomLabel;
     private javax.swing.JLabel numEtudiantLabel;
     private javax.swing.JLabel parcoursLabel;
     private javax.swing.JLabel prenomLabel;
     private javax.swing.JLabel titleDossierLabel;
     private javax.swing.JLabel titleMentionLabel;
-    private javax.swing.JLabel titleNiveauLabel;
     private javax.swing.JLabel titleNomLabel;
     private javax.swing.JLabel titleNumEtudiantLabel;
     private javax.swing.JLabel titleParcoursLabel;

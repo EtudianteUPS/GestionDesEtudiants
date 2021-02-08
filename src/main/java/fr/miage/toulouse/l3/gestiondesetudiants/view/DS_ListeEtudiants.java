@@ -41,7 +41,7 @@ public class DS_ListeEtudiants extends JFrame {
     DS_ListeEtudiantsModele etudiantsModele;
     public DS_ListeEtudiants() throws HeadlessException {
         this.setVisible(true);
-        this.setBounds(100, 100, 900, 600);
+        this.setBounds(100, 100, 950, 650);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         init();

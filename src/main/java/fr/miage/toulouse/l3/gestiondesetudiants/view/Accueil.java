@@ -1,15 +1,16 @@
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
 import fr.miage.toulouse.l3.gestiondesetudiants.controller.B_ListeUeController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.D_DossierEtudiantController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.D_ListeEtudiantsController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.SecretaireController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.DS_DossierEtudiantController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.DS_ListeEtudiantsController;
+
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.UE;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.ValeurCreditErronee;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.S_JTableEtudiants;
 
 /**
  *
@@ -70,22 +71,22 @@ public class Accueil extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(80, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         DirButton.setBackground(new java.awt.Color(255, 122, 50));
@@ -138,7 +139,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(SecButton, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,18 +192,12 @@ public class Accueil extends javax.swing.JFrame {
      * @param evt 
      */
     private void BurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BurButtonActionPerformed
-        try {
-            /* création vue */
-            B_ListeUE blue = new B_ListeUE();
-            /*création Modele*/
-            UE ue = new UE("S1InfMIASHSMIAGE","Informatique",6);
-            /* Création du controller*/
-            B_ListeUeController bc = new B_ListeUeController(ue, this, blue);
-
-            bc.initController();
-        } catch (ValeurCreditErronee ex) {
-            Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        /* création vue */
+        B_ListeUE blue = new B_ListeUE();
+        
+        /* Création du controller*/
+        B_ListeUeController blu = new B_ListeUeController(this, blue);
+        blu.initController();
     }//GEN-LAST:event_BurButtonActionPerformed
 
     /**
@@ -211,15 +206,11 @@ public class Accueil extends javax.swing.JFrame {
      */
     private void SecButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecButtonActionPerformed
         /* création vue */
-        //S_DossierEtudiant sde = new S_DossierEtudiant();
-           
-        /*création Modele*/
-        //Etudiant e1 = new Etudiant("Nachin","Sophia","21810700",1,1);
-
-        /* Création du controller*/
-        //SecretaireController sc = new SecretaireController(e1, this,sde);
+        S_JTableEtudiants sjte = new S_JTableEtudiants();
         
-        //sc.initController();
+        /* Création du controller*/
+        DS_ListeEtudiantsController dle = new DS_ListeEtudiantsController(this, sjte);
+        dle.initController();
     }//GEN-LAST:event_SecButtonActionPerformed
 
     /**
@@ -235,7 +226,7 @@ public class Accueil extends javax.swing.JFrame {
         //Etudiant e1 = new Etudiant(21810700,"Nachin","Sophia",1,1);
 
         /* Création du controller*/
-        D_ListeEtudiantsController dle = new D_ListeEtudiantsController(this, jte);
+        DS_ListeEtudiantsController dle = new DS_ListeEtudiantsController(this, jte);
         dle.initController();
         /* Liaison bouton directeur au controller */
         //accueil.getDirButton().addActionListener(ec); /* prend les données du modèle et l'affiche dans la vue */

@@ -5,47 +5,41 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.B_ListeEtudiants;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.B_ListeUE;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  *
- * @author SophiaNachin
+ * @author FatimatouCisse
  */
-public class B_ListeUeController {
+
+public class B_ListeEtudiantsController  {
+    B_ListeEtudiants listeEtudiants;
     B_ListeUE listeUe;
-    Accueil accueil;
-    
+        
     /**
      * On transmet le modèle etudiant, et la vue D_DossierEtudiant 
-     * @param e
-     * @param accueil
-     * @param dde 
      */
-    public B_ListeUeController(Accueil accueil, B_ListeUE listeUe){
-        this.accueil = accueil;
+    public B_ListeEtudiantsController(B_ListeUE listeUe, B_ListeEtudiants listeEtudiants ){
+       
+        this.listeEtudiants = listeEtudiants;
         this.listeUe = listeUe;
-        initView();
+        //initView();
     }
-   
+    
     /**
      * Initialisation de la vue à charger
      */
-    private void initView(){
+    /*private void initView(){
+       
         
-    }
+    }*/
     
     /**
      * Dès que le bouton DirButton est déclenché, on affiche la nouvelle vue et on ferme l'ancienne
      */
     public void initController(){
-        this.accueil.getBurButton().addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                listeUe.setVisible(true);
-                accueil.dispose();
-            }
-        });
+        this.listeEtudiants.setVisible(true);
+        this.listeUe.dispose();
     }
 }

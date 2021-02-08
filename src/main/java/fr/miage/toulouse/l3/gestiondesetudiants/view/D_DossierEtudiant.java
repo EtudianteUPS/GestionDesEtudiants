@@ -24,10 +24,10 @@ import javax.swing.JTable;
  * @author SophiaNachin
  */
 public class D_DossierEtudiant extends javax.swing.JFrame {   
-    private ListeUeEnCoursCsv myListEnCours;
-    private Object[][] data;
-    private String [] columnNames = {"Code id de l'UE", "Nom UE", "Crédits ECTS"};
-    DefaultTableModel tableModel;
+    //private ListeUeEnCoursCsv myListEnCours;
+    //private Object[][] data;
+    //private String [] columnNames = {"Code id de l'UE", "Nom UE", "Crédits ECTS"};
+    //DefaultTableModel tableModel;
     public static String numEtudiant;
     /**
      * Creates new form DS_DossierEtudiant
@@ -35,17 +35,20 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
     public D_DossierEtudiant() {
         super("Dossier étudiant");
         this.setLocationRelativeTo(null); // center the frame
-        myListEnCours = new ListeUeEnCoursCsv();
+        initComponents();
         
-        String str = "donnees/" + numEtudiant + "_ListeUeEnCours.csv";
+        /*myListEnCours = new ListeUeEnCoursCsv();
+        
+        String str = "donnees/21801011_ListeUeEnCours.csv";
         myListEnCours.readFromCSV(str);
         data = myListEnCours.convert2Data();
         tableModel = new DefaultTableModel(data, columnNames);
-        initComponents();
+        
        
         //UeEnCoursjTable = new JTable(tableModel);
         //association data,columnsName dans initComponents()
-        //ajout de mouseListener dans initComponents()        
+        //ajout de mouseListener dans initComponents()  
+        */
     }
 
     
@@ -74,8 +77,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         nomLabel = new javax.swing.JLabel();
         titlePrenomLabel = new javax.swing.JLabel();
         prenomLabel = new javax.swing.JLabel();
-        titleNiveauLabel = new javax.swing.JLabel();
-        niveauLabel = new javax.swing.JLabel();
         titleMentionLabel = new javax.swing.JLabel();
         mentionLabel = new javax.swing.JLabel();
         titleParcoursLabel = new javax.swing.JLabel();
@@ -88,7 +89,7 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         UeDisponibleJTabbedPane = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        UeDisponibleJTable = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -168,7 +169,7 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
             HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeaderPanelLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(AccueilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AccueilButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -177,7 +178,7 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DosButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(SearchBarTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
@@ -223,14 +224,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         prenomLabel.setForeground(new java.awt.Color(51, 51, 51));
         prenomLabel.setText("jLabel3");
 
-        titleNiveauLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        titleNiveauLabel.setForeground(new java.awt.Color(51, 51, 51));
-        titleNiveauLabel.setText("Niveau");
-
-        niveauLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        niveauLabel.setForeground(new java.awt.Color(51, 51, 51));
-        niveauLabel.setText("jLabel3");
-
         titleMentionLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         titleMentionLabel.setForeground(new java.awt.Color(51, 51, 51));
         titleMentionLabel.setText("Mention");
@@ -254,8 +247,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         DseLayeredPane1.setLayer(nomLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(titlePrenomLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(prenomLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        DseLayeredPane1.setLayer(titleNiveauLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        DseLayeredPane1.setLayer(niveauLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(titleMentionLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(mentionLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         DseLayeredPane1.setLayer(titleParcoursLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -280,23 +271,15 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titlePrenomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prenomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DseLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(titleNiveauLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(niveauLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mentionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(DseLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(titleMentionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                    .addComponent(titleMentionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mentionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titleParcoursLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(parcoursLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DseLayeredPane1Layout.setVerticalGroup(
             DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +288,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                 .addGroup(DseLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleNomLabel)
                     .addComponent(titlePrenomLabel)
-                    .addComponent(titleNiveauLabel)
                     .addComponent(titleMentionLabel)
                     .addComponent(titleParcoursLabel)
                     .addComponent(titleDossierLabel)
@@ -315,7 +297,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                     .addComponent(numEtudiantLabel)
                     .addComponent(nomLabel)
                     .addComponent(prenomLabel)
-                    .addComponent(niveauLabel)
                     .addComponent(mentionLabel)
                     .addComponent(parcoursLabel))
                 .addGap(29, 29, 29))
@@ -334,265 +315,270 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
 
         UeEnCoursjTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         UeEnCoursjTable.setForeground(new java.awt.Color(51, 51, 51));
-        UeEnCoursjTable.setModel(
-            tableModel
-            /*data,
-            new String [] {
-                "Code id de l'UE", "Nom UE", "Crédits ECTS"
-            }*/
-        );
-        UeEnCoursjTable.setGridColor(new java.awt.Color(255, 255, 255));
-        UeEnCoursjTable.setSelectionBackground(new java.awt.Color(0, 153, 204));
-        UeEnCoursjTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
-        jScrollPane3.setViewportView(UeEnCoursjTable);
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel18.setText("2020-2021 - 3ème année - premier semestre");
-
-        javax.swing.GroupLayout UeEnCoursJTabbedPaneLayout = new javax.swing.GroupLayout(UeEnCoursJTabbedPane);
-        UeEnCoursJTabbedPane.setLayout(UeEnCoursJTabbedPaneLayout);
-        UeEnCoursJTabbedPaneLayout.setHorizontalGroup(
-            UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
-                    .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        UeEnCoursJTabbedPaneLayout.setVerticalGroup(
-            UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        ListeUETabbedPane.addTab("UE en cours", UeEnCoursJTabbedPane);
-
-        UeDisponibleJTabbedPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTable4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTable4.setForeground(new java.awt.Color(51, 51, 51));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        UeEnCoursjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Code id de l'UE", "Nom UE", "Crédits ECTS", "Mention", "Parcours", "Semestre"
+                //"Code id de l'UE", "Nom UE", "Crédits ECTS"
             }
-        ));
-        jTable4.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable4.setSelectionBackground(new java.awt.Color(255, 191, 153));
-        jScrollPane4.setViewportView(jTable4);
+        )
+    );
+    UeEnCoursjTable.setGridColor(new java.awt.Color(255, 255, 255));
+    UeEnCoursjTable.setSelectionBackground(new java.awt.Color(255, 191, 153));
+    jScrollPane3.setViewportView(UeEnCoursjTable);
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(51, 51, 51));
+    jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+    jLabel18.setForeground(new java.awt.Color(51, 51, 51));
+    jLabel18.setText("2020-2021 - 3ème année - premier semestre");
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel20.setText("Trier par");
+    javax.swing.GroupLayout UeEnCoursJTabbedPaneLayout = new javax.swing.GroupLayout(UeEnCoursJTabbedPane);
+    UeEnCoursJTabbedPane.setLayout(UeEnCoursJTabbedPaneLayout);
+    UeEnCoursJTabbedPaneLayout.setHorizontalGroup(
+        UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
+                    .addComponent(jLabel18)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap())
+    );
+    UeEnCoursJTabbedPaneLayout.setVerticalGroup(
+        UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel18)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+            .addContainerGap())
+    );
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parcours", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+    ListeUETabbedPane.addTab("UE en cours", UeEnCoursJTabbedPane);
 
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Niveau", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
+    UeDisponibleJTabbedPane.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox3.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mention", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
-            }
-        });
+    jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout UeDisponibleJTabbedPaneLayout = new javax.swing.GroupLayout(UeDisponibleJTabbedPane);
-        UeDisponibleJTabbedPane.setLayout(UeDisponibleJTabbedPaneLayout);
-        UeDisponibleJTabbedPaneLayout.setHorizontalGroup(
-            UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UeDisponibleJTabbedPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
-                    .addGroup(UeDisponibleJTabbedPaneLayout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        UeDisponibleJTabbedPaneLayout.setVerticalGroup(
-            UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UeDisponibleJTabbedPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+    UeDisponibleJTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+    UeDisponibleJTable.setForeground(new java.awt.Color(51, 51, 51));
+    UeDisponibleJTable.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
 
-        ListeUETabbedPane.addTab("UE Disponible", UeDisponibleJTabbedPane);
+        },
+        new String [] {
 
-        UeValideeJTabbedPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        UeValideejTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        UeValideejTable.setForeground(new java.awt.Color(51, 51, 51));
-        UeValideejTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Code id de l'UE", "Nom UE", "Crédits ECTS", "Mention", "Parcours", "Année obtention", "Session"
-            }
-        ));
-        UeValideejTable.setGridColor(new java.awt.Color(204, 204, 204));
-        UeValideejTable.setSelectionBackground(new java.awt.Color(255, 191, 153));
-        jScrollPane2.setViewportView(UeValideejTable);
-        if (UeValideejTable.getColumnModel().getColumnCount() > 0) {
-            UeValideejTable.getColumnModel().getColumn(5).setHeaderValue("Année obtention");
-            UeValideejTable.getColumnModel().getColumn(6).setHeaderValue("Session");
         }
+    ));
+    UeDisponibleJTable.setGridColor(new java.awt.Color(204, 204, 204));
+    UeDisponibleJTable.setSelectionBackground(new java.awt.Color(255, 191, 153));
+    jScrollPane4.setViewportView(UeDisponibleJTable);
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("2020-2021 - 3ème année - UE validées");
+    jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+    jLabel19.setForeground(new java.awt.Color(51, 51, 51));
 
-        javax.swing.GroupLayout UeValideeJTabbedPaneLayout = new javax.swing.GroupLayout(UeValideeJTabbedPane);
-        UeValideeJTabbedPane.setLayout(UeValideeJTabbedPaneLayout);
-        UeValideeJTabbedPaneLayout.setHorizontalGroup(
-            UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
-                    .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        UeValideeJTabbedPaneLayout.setVerticalGroup(
-            UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+    jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+    jLabel20.setForeground(new java.awt.Color(51, 51, 51));
+    jLabel20.setText("Trier par");
 
-        ListeUETabbedPane.addTab("UE validée", UeValideeJTabbedPane);
+    jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+    jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parcours", "Item 2", "Item 3", "Item 4" }));
+    jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jComboBox1ActionPerformed(evt);
+        }
+    });
 
-        listeUELabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        listeUELabel.setForeground(new java.awt.Color(51, 51, 51));
-        listeUELabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        listeUELabel.setText("Liste des UE");
+    jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+    jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
+    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Niveau", "Item 2", "Item 3", "Item 4" }));
+    jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jComboBox2ActionPerformed(evt);
+        }
+    });
 
-        javax.swing.GroupLayout listeUEPanelLayout = new javax.swing.GroupLayout(listeUEPanel);
-        listeUEPanel.setLayout(listeUEPanelLayout);
-        listeUEPanelLayout.setHorizontalGroup(
-            listeUEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listeUEPanelLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(ListeUETabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listeUEPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(listeUELabel)
-                .addGap(354, 354, 354))
-        );
-        listeUEPanelLayout.setVerticalGroup(
-            listeUEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listeUEPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(listeUELabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ListeUETabbedPane)
-                .addContainerGap())
-        );
+    jComboBox3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+    jComboBox3.setForeground(new java.awt.Color(51, 51, 51));
+    jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mention", "Item 2", "Item 3", "Item 4" }));
+    jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jComboBox3ActionPerformed(evt);
+        }
+    });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(DseLayeredPane1)
-            .addComponent(listeUEPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DseLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(listeUEPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+    javax.swing.GroupLayout UeDisponibleJTabbedPaneLayout = new javax.swing.GroupLayout(UeDisponibleJTabbedPane);
+    UeDisponibleJTabbedPane.setLayout(UeDisponibleJTabbedPaneLayout);
+    UeDisponibleJTabbedPaneLayout.setHorizontalGroup(
+        UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(UeDisponibleJTabbedPaneLayout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                .addGroup(UeDisponibleJTabbedPaneLayout.createSequentialGroup()
+                    .addComponent(jLabel19)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel20)
+                    .addGap(18, 18, 18)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap())
+    );
+    UeDisponibleJTabbedPaneLayout.setVerticalGroup(
+        UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(UeDisponibleJTabbedPaneLayout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(UeDisponibleJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel19)
+                .addComponent(jLabel20)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+            .addContainerGap())
+    );
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+    ListeUETabbedPane.addTab("UE Disponible", UeDisponibleJTabbedPane);
 
-        FileMenu.setBackground(new java.awt.Color(255, 255, 255));
-        FileMenu.setForeground(new java.awt.Color(51, 51, 51));
-        FileMenu.setText("File");
-        jMenuBar1.add(FileMenu);
+    UeValideeJTabbedPane.setBackground(new java.awt.Color(255, 255, 255));
 
-        EditMenu.setBackground(new java.awt.Color(255, 255, 255));
-        EditMenu.setForeground(new java.awt.Color(51, 51, 51));
-        EditMenu.setText("Edit");
-        jMenuBar1.add(EditMenu);
+    jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
-        ViewMenu2.setBackground(new java.awt.Color(255, 255, 255));
-        ViewMenu2.setForeground(new java.awt.Color(51, 51, 51));
-        ViewMenu2.setText("View");
-        jMenuBar1.add(ViewMenu2);
+    UeValideejTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+    UeValideejTable.setForeground(new java.awt.Color(51, 51, 51));
+    UeValideejTable.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
 
-        HelpMenu1.setBackground(new java.awt.Color(255, 255, 255));
-        HelpMenu1.setForeground(new java.awt.Color(51, 51, 51));
-        HelpMenu1.setText("Help");
-        jMenuBar1.add(HelpMenu1);
+        },
+        new String [] {
 
-        setJMenuBar(jMenuBar1);
+        }
+    ));
+    UeValideejTable.setGridColor(new java.awt.Color(255, 255, 255));
+    UeValideejTable.setSelectionBackground(new java.awt.Color(255, 191, 153));
+    jScrollPane2.setViewportView(UeValideejTable);
+    if (UeValideejTable.getColumnModel().getColumnCount() > 0) {
+        UeValideejTable.getColumnModel().getColumn(5).setHeaderValue("Année obtention");
+        UeValideejTable.getColumnModel().getColumn(6).setHeaderValue("Session");
+    }
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+    jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+    jLabel14.setText("2020-2021 - 3ème année - UE validées");
 
-        pack();
+    javax.swing.GroupLayout UeValideeJTabbedPaneLayout = new javax.swing.GroupLayout(UeValideeJTabbedPane);
+    UeValideeJTabbedPane.setLayout(UeValideeJTabbedPaneLayout);
+    UeValideeJTabbedPaneLayout.setHorizontalGroup(
+        UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
+                    .addComponent(jLabel14)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap())
+    );
+    UeValideeJTabbedPaneLayout.setVerticalGroup(
+        UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel14)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+            .addContainerGap())
+    );
+
+    ListeUETabbedPane.addTab("UE validée", UeValideeJTabbedPane);
+
+    listeUELabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+    listeUELabel.setForeground(new java.awt.Color(51, 51, 51));
+    listeUELabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    listeUELabel.setText("Liste des UE");
+
+    javax.swing.GroupLayout listeUEPanelLayout = new javax.swing.GroupLayout(listeUEPanel);
+    listeUEPanel.setLayout(listeUEPanelLayout);
+    listeUEPanelLayout.setHorizontalGroup(
+        listeUEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(listeUEPanelLayout.createSequentialGroup()
+            .addGap(371, 371, 371)
+            .addComponent(listeUELabel)
+            .addContainerGap(388, Short.MAX_VALUE))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listeUEPanelLayout.createSequentialGroup()
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ListeUETabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(66, 66, 66))
+    );
+    listeUEPanelLayout.setVerticalGroup(
+        listeUEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listeUEPanelLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(listeUELabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(ListeUETabbedPane)
+            .addContainerGap())
+    );
+
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(HeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(DseLayeredPane1)
+        .addComponent(listeUEPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel1Layout.createSequentialGroup()
+            .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(DseLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(listeUEPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+    );
+
+    jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+
+    FileMenu.setBackground(new java.awt.Color(255, 255, 255));
+    FileMenu.setForeground(new java.awt.Color(51, 51, 51));
+    FileMenu.setText("File");
+    jMenuBar1.add(FileMenu);
+
+    EditMenu.setBackground(new java.awt.Color(255, 255, 255));
+    EditMenu.setForeground(new java.awt.Color(51, 51, 51));
+    EditMenu.setText("Edit");
+    jMenuBar1.add(EditMenu);
+
+    ViewMenu2.setBackground(new java.awt.Color(255, 255, 255));
+    ViewMenu2.setForeground(new java.awt.Color(51, 51, 51));
+    ViewMenu2.setText("View");
+    jMenuBar1.add(ViewMenu2);
+
+    HelpMenu1.setBackground(new java.awt.Color(255, 255, 255));
+    HelpMenu1.setForeground(new java.awt.Color(51, 51, 51));
+    HelpMenu1.setText("Help");
+    jMenuBar1.add(HelpMenu1);
+
+    setJMenuBar(jMenuBar1);
+
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void DosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DosButtonActionPerformed
@@ -634,9 +620,9 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         return this.prenomLabel;
     }
     
-    public javax.swing.JLabel getNiveauLabel(){
+    /*public javax.swing.JLabel getNiveauLabel(){
         return this.niveauLabel;
-    }
+    }*/
     
     public javax.swing.JLabel getMentionLabel(){
         return this.mentionLabel;
@@ -645,6 +631,19 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
     public javax.swing.JLabel getParcoursLabel(){
         return this.parcoursLabel;
     }
+
+    public JTable getUeEnCoursjTable() {
+        return UeEnCoursjTable;
+    }
+
+    public JTable getUeValideejTable() {
+        return UeValideejTable;
+    }
+
+    public JTable getUeDisponibleJTable() {
+        return UeDisponibleJTable;
+    }
+    
     
     
     /**
@@ -690,6 +689,7 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
     private javax.swing.JTabbedPane ListeUETabbedPane;
     private javax.swing.JTextField SearchBarTextField1;
     private javax.swing.JPanel UeDisponibleJTabbedPane;
+    private javax.swing.JTable UeDisponibleJTable;
     private javax.swing.JPanel UeEnCoursJTabbedPane;
     private javax.swing.JTable UeEnCoursjTable;
     private javax.swing.JPanel UeValideeJTabbedPane;
@@ -710,18 +710,15 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable4;
     private javax.swing.JLabel listeUELabel;
     private javax.swing.JPanel listeUEPanel;
     private javax.swing.JLabel mentionLabel;
-    private javax.swing.JLabel niveauLabel;
     private javax.swing.JLabel nomLabel;
     private javax.swing.JLabel numEtudiantLabel;
     private javax.swing.JLabel parcoursLabel;
     private javax.swing.JLabel prenomLabel;
     private javax.swing.JLabel titleDossierLabel;
     private javax.swing.JLabel titleMentionLabel;
-    private javax.swing.JLabel titleNiveauLabel;
     private javax.swing.JLabel titleNomLabel;
     private javax.swing.JLabel titleNumEtudiantLabel;
     private javax.swing.JLabel titleParcoursLabel;

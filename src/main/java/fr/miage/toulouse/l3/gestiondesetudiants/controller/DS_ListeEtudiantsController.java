@@ -6,6 +6,7 @@
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.S_JTableEtudiants;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.D_DossierEtudiant;
 import java.awt.event.ActionEvent;
@@ -20,9 +21,11 @@ import javax.swing.table.TableModel;
  * @author FatimatouCisse
  */
 
-public class D_ListeEtudiantsController  {
+public class DS_ListeEtudiantsController  {
     Accueil accueil;
     JTableEtudiants listeEtudiants;
+    S_JTableEtudiants S_listeEtudiants;
+    
     
     /**
      * On transmet le modèle etudiant, et la vue D_DossierEtudiant 
@@ -30,9 +33,16 @@ public class D_ListeEtudiantsController  {
      * @param 
      * @param dde 
      */
-    public D_ListeEtudiantsController(Accueil accueil, JTableEtudiants listeEtudiants ){
+    public DS_ListeEtudiantsController(Accueil accueil, JTableEtudiants listeEtudiants ){
        
         this.listeEtudiants = listeEtudiants;
+        this.accueil = accueil;
+        //initView();
+    }
+    
+    public DS_ListeEtudiantsController(Accueil accueil, S_JTableEtudiants S_listeEtudiants ){
+       
+        this.S_listeEtudiants = S_listeEtudiants;
         this.accueil = accueil;
         //initView();
     }
@@ -52,6 +62,13 @@ public class D_ListeEtudiantsController  {
         this.accueil.getDirButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 listeEtudiants.setVisible(true);
+                accueil.dispose();
+            }
+        });
+        
+        this.accueil.getSecButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                S_listeEtudiants.setVisible(true);
                 accueil.dispose();
             }
         });

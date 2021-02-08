@@ -51,6 +51,22 @@ public class UE {
      * @param id_ue
      * @param nom_ue
      * @param credit_ue
+     * @param mention
+     * @param parcours
+     * @throws ValeurCreditErronee 
+     */
+    public UE(String id_ue, String nom_ue, int credit_ue, Mention mention, Parcours parcours) throws ValeurCreditErronee{
+        this(id_ue,nom_ue, credit_ue);
+        this.mention = mention;
+        this.parcours = parcours;
+    }
+    
+    
+    /**
+     * 
+     * @param id_ue
+     * @param nom_ue
+     * @param credit_ue
      * @param id_mention
      * @param prerequis_ue
      * @throws ValeurCreditErronee 

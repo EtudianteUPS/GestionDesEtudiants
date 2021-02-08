@@ -5,16 +5,30 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.B_ListeEtudiantsController;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.ListeUeCsv;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author SophiaNachin
  */
 public class B_ListeUE extends javax.swing.JFrame {
-
+    private ListeUeCsv listeUe;
+    private Object[][] data;
+    private String[] columnName = {"Code de l'UE","Nom UE","Crédits ECTS", "Mention", "Parcours"};
+    private DefaultTableModel tableModel;
+    
     /**
      * Creates new form B_ListeUE
      */
     public B_ListeUE() {
+        listeUe = new ListeUeCsv();
+        listeUe.readFromCSV("donnees/listeUE.csv");
+        data = listeUe.convert2Data();
+        tableModel = new DefaultTableModel(data,columnName);
+
         initComponents();
         this.setLocationRelativeTo(null); // center the frame
     }
@@ -40,7 +54,7 @@ public class B_ListeUE extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        listeUeJTable = new javax.swing.JTable();
         consulterButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
@@ -154,19 +168,19 @@ public class B_ListeUE extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(51, 51, 51));
         jLabel20.setText("Trier par");
 
-        jTable4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTable4.setForeground(new java.awt.Color(51, 51, 51));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Code de l'UE", "Nom de l'UE", "Niveau", "Mention", "Parcours"
+        listeUeJTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        listeUeJTable.setForeground(new java.awt.Color(51, 51, 51));
+        listeUeJTable.setModel(
+            tableModel
+        );
+        listeUeJTable.setGridColor(new java.awt.Color(204, 204, 204));
+        listeUeJTable.setSelectionBackground(new java.awt.Color(0, 165, 255));
+        listeUeJTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listeUeJTableMouseClicked(evt);
             }
-        ));
-        jTable4.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable4.setSelectionBackground(new java.awt.Color(0, 165, 255));
-        jScrollPane4.setViewportView(jTable4);
+        });
+        jScrollPane4.setViewportView(listeUeJTable);
 
         consulterButton.setBackground(new java.awt.Color(255, 90, 0));
         consulterButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -286,6 +300,18 @@ public class B_ListeUE extends javax.swing.JFrame {
         
     }//GEN-LAST:event_consulterButtonActionPerformed
 
+    private void listeUeJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listeUeJTableMouseClicked
+        // TODO add your handling code here:
+        B_ListeEtudiants ble = new B_ListeEtudiants();
+        B_ListeEtudiantsController bc = new B_ListeEtudiantsController(this, ble);
+        bc.initController();
+    }//GEN-LAST:event_listeUeJTableMouseClicked
+
+    public JTable getListeUeJTable() {
+        return listeUeJTable;
+    }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -314,11 +340,11 @@ public class B_ListeUE extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new B_ListeUE().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -339,7 +365,7 @@ public class B_ListeUE extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable4;
     private javax.swing.JLabel listeEtudiantLabel;
+    private javax.swing.JTable listeUeJTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,7 +26,7 @@ import javax.swing.table.TableModel;
  * @author FatimatouCisse
  */
 
-public class JTableEtudiants extends JFrame implements ActionListener {
+public class S_JTableEtudiants extends JFrame implements ActionListener {
    private Object[][] data;
    private String[] columnNames = {"Nom","Prénom","Numéro d'étudiant", "Mention", "Parcours"};
    private DefaultTableModel tableModel;
@@ -34,7 +34,7 @@ public class JTableEtudiants extends JFrame implements ActionListener {
    private ListeEtudiantsCsv myList;
    private JLabel listeEtudiantsLabel;
 
-   public JTableEtudiants() {
+   public S_JTableEtudiants() {
       super("Table Etudiants");
       initComponents(); 
       this.setLocationRelativeTo(null); // center the frame
@@ -84,13 +84,7 @@ public class JTableEtudiants extends JFrame implements ActionListener {
 
    }
    
-   private void tableMouseClicked(java.awt.event.MouseEvent evt) {                                     
-        
-        /*TableModel model = table.getModel();
-        D_DossierEtudiant dde = new D_DossierEtudiant();
-        DS_DossierEtudiantController dc = new DS_DossierEtudiantController(model,this, dde); 
-        dc.initController();*/
-        
+   private void tableMouseClicked(java.awt.event.MouseEvent evt) {                                             
         int index = table.getSelectedRow();
         
         TableModel model = table.getModel();
@@ -101,22 +95,21 @@ public class JTableEtudiants extends JFrame implements ActionListener {
         String mention = model.getValueAt(index, 3).toString();
         String parcours = model.getValueAt(index, 4).toString();
         
-        D_DossierEtudiant jtRowData = new D_DossierEtudiant();
-        DS_DossierEtudiantController dc = new DS_DossierEtudiantController(numeroEt, jtRowData); 
+        S_DossierEtudiant jtRowDataS = new S_DossierEtudiant();
+        DS_DossierEtudiantController dc = new DS_DossierEtudiantController(numeroEt, jtRowDataS); 
         dc.initController();
-        jtRowData.setVisible(true);
-        //D_Dossier etudiant 
-        jtRowData.pack();
-        jtRowData.setLocationRelativeTo(null);
-        jtRowData.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jtRowDataS.setVisible(true);
+      
+        // S_Dossier etudiants
+        jtRowDataS.pack();
+        jtRowDataS.setLocationRelativeTo(null);
+        jtRowDataS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-        jtRowData.getnumEtudiantLabel().setText(numeroEt);
-        jtRowData.getNomLabel().setText(nom);
-        jtRowData.getPrenomLabel().setText(prenom);
-        jtRowData.getMentionLabel().setText(mention);
-        jtRowData.getParcoursLabel().setText(parcours);
-        jtRowData.numEtudiant = numeroEt;
-            
+        jtRowDataS.getnumEtudiantLabel().setText(numeroEt);
+        jtRowDataS.getNomLabel().setText(nom);
+        jtRowDataS.getPrenomLabel().setText(prenom);
+        jtRowDataS.getMentionLabel().setText(mention);
+        jtRowDataS.getParcoursLabel().setText(parcours);        
         this.dispose();                          
    }
    
