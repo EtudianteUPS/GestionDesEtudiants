@@ -5,44 +5,45 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.D_DossierEtudiant;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableModel;
+
 
 /**
- * controler de la partie de l'application dédiée au directeur d'étude
- * @author SophiaNachin
+ *
+ * @author FatimatouCisse
  */
-public class DirecteurController  {
-    Etudiant e;
-    D_DossierEtudiant dde;
+
+public class D_ListeEtudiantsController  {
     Accueil accueil;
+    JTableEtudiants listeEtudiants;
     
     /**
      * On transmet le modèle etudiant, et la vue D_DossierEtudiant 
      * @param e
-     * @param accueil
+     * @param 
      * @param dde 
      */
-    public DirecteurController(Etudiant e, Accueil accueil, D_DossierEtudiant dde){
-        this.e = e;
+    public D_ListeEtudiantsController(Accueil accueil, JTableEtudiants listeEtudiants ){
+       
+        this.listeEtudiants = listeEtudiants;
         this.accueil = accueil;
-        this.dde = dde;
-        initView();
+        //initView();
     }
    
     /**
      * Initialisation de la vue à charger
      */
-    private void initView(){
-        this.dde.getnumEtudiantLabel().setText(String.valueOf(this.e.getIdEtudiant()));
-        this.dde.getNomLabel().setText(this.e.getNom());
-        this.dde.getPrenomLabel().setText(this.e.getPrenom());
-        this.dde.getMentionLabel().setText(String.valueOf(this.e.getMention()));
-        this.dde.getParcoursLabel().setText(String.valueOf(this.e.getParcours()));
-    }
+    /*private void initView(){
+       
+        
+    }*/
     
     /**
      * Dès que le bouton DirButton est déclenché, on affiche la nouvelle vue et on ferme l'ancienne
@@ -50,7 +51,7 @@ public class DirecteurController  {
     public void initController(){
         this.accueil.getDirButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                dde.setVisible(true);
+                listeEtudiants.setVisible(true);
                 accueil.dispose();
             }
         });

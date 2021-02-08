@@ -5,6 +5,7 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.ListeUeEnCoursCsv;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -20,13 +21,17 @@ import org.apache.commons.csv.CSVRecord;
  * @author SophiaNachin
  */
 public class D_DossierEtudiant extends javax.swing.JFrame {   
-    
+    private ListeUeEnCoursCsv myList;
+    private Object[][] data;
     /**
      * Creates new form DS_DossierEtudiant
      */
     public D_DossierEtudiant() {
         initComponents();
         this.setLocationRelativeTo(null); // center the frame
+        myList = new ListeUeEnCoursCsv();
+        myList.readFromCSV("donnees/data.csv");
+        data = myList.convert2Data();
     }
 
     
@@ -321,7 +326,7 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Code id de l'UE", "Nom UE", "Crédits ECTS", "Mention", "Parcours"
+                "Code id de l'UE", "Nom UE", "Crédits ECTS"
             }
         ));
         UeEnCoursjTable.setGridColor(new java.awt.Color(255, 51, 0));

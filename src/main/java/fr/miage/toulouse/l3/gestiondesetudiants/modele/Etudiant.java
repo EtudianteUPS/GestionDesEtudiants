@@ -11,46 +11,51 @@ package fr.miage.toulouse.l3.gestiondesetudiants.modele;
  */
 
 public class Etudiant {
-    private  int id_etudiant;
-    private  String prenom_etudiant;
-    private  String nom_etudiant;
-    private  int id_mention;
-    private  int id_parcours;
+    String nom;
+    String prenom;
+    String numeroEt;
+    Mention mention;
+    Parcours parcours;
 
-    /**
-     *
-     * @param id_etudiant = numéro d'étudiant
-     * @param prenom_etudiant = prénom de l'étudiant
-     * @param nom_etudiant = nom de l'étudiant
-     * @param id_mention = Mention du parcours où est inscrit l'étudiant
-     * @param id_parcours = Parcours de la mention concernée
-     */
-    public Etudiant(int id_etudiant, String prenom_etudiant, String nom_etudiant, int id_mention, int id_parcours) {
-        this.id_etudiant = id_etudiant;
-        this.prenom_etudiant = prenom_etudiant;
-        this.nom_etudiant = nom_etudiant;
-        this.id_mention = id_mention;
-        this.id_parcours = id_parcours;
-    }
-
-    public int getIdEtudiant() {
-        return id_etudiant;
-    }
-
-    public String getPrenom() {
-        return prenom_etudiant;
+    public Etudiant(String n, String p, String numEt, Mention mention, Parcours parcours) {
+        nom = n.trim();
+        prenom = p.trim();
+        numeroEt = numEt.trim();
+        this.mention = mention;
+        this.parcours = parcours;
+        
     }
 
     public String getNom() {
-        return nom_etudiant;
+        return nom;
     }
 
-    public int getMention() {
-        return id_mention;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public int getParcours() {
-        return id_parcours;
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getNumeroEt() {
+        return numeroEt;
+    }
+
+    public void setNumeroEt(String numeroEt) {
+        this.numeroEt = numeroEt;
+    }
+
+    public Mention getMention() {
+        return mention;
+    }
+
+    public Parcours getParcours() {
+        return parcours;
     }
     
     

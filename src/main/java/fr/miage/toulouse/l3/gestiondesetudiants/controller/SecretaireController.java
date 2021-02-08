@@ -37,7 +37,7 @@ public class SecretaireController {
      * Initialisation de la vue à charger
      */
     private void initView(){
-        this.sde.getnumEtudiantLabel().setText(String.valueOf(this.e.getIdEtudiant()));
+        this.sde.getnumEtudiantLabel().setText(String.valueOf(this.e.getNumeroEt()));
         this.sde.getNomLabel().setText(this.e.getNom());
         this.sde.getPrenomLabel().setText(this.e.getPrenom());
         this.sde.getMentionLabel().setText(String.valueOf(this.e.getMention()));

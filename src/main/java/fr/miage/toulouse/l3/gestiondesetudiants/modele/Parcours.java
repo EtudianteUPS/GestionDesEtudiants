@@ -11,9 +11,9 @@ package fr.miage.toulouse.l3.gestiondesetudiants.modele;
  */
 public class Parcours {
     
-    private  int id_parcours;
+
     private String intitule_parcours; 
-    private int id_mention;
+  
   
  /**
      * Initialisation d'une UE
@@ -24,12 +24,16 @@ public class Parcours {
      */
 
 
-public Parcours (int id_parcours, String intitule_parcours , int id_mention) 
-      {
-        this.id_parcours = id_parcours;
+    public Parcours (String intitule_parcours) 
+    {
+       
         this.intitule_parcours = intitule_parcours;
-        this. id_mention =  id_mention;
-      }
+        
+    }
+
+    public String getIntitule_parcours() {
+        return intitule_parcours;
+    }
     
       
-      }
+}
