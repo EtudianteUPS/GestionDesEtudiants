@@ -14,9 +14,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import au.com.bytecode.opencsv.CSVReader;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,7 +41,7 @@ public class DS_ListeEtudiants extends JFrame {
     DS_ListeEtudiantsModele etudiantsModele;
     public DS_ListeEtudiants() throws HeadlessException {
         this.setVisible(true);
-        this.setBounds(100, 100, 900, 600);
+        this.setBounds(100, 100, 950, 650);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         init();
@@ -117,8 +119,7 @@ public class DS_ListeEtudiants extends JFrame {
        return data;
    }
     
- 
-    
+
     
     /*public static void main(String args[]) 
     {
