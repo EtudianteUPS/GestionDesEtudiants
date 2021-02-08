@@ -9,12 +9,12 @@ package fr.miage.toulouse.l3.gestiondesetudiants.view;
  *
  * @author SophiaNachin
  */
-public class B_ListeUE extends javax.swing.JFrame {
+public class B_ListeEtudiants extends javax.swing.JFrame {
 
     /**
      * Creates new form B_ListeUE
      */
-    public B_ListeUE() {
+    public B_ListeEtudiants() {
         initComponents();
         this.setLocationRelativeTo(null); // center the frame
     }
@@ -34,14 +34,13 @@ public class B_ListeUE extends javax.swing.JFrame {
         InsButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         SearchBarTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        InsButton1 = new javax.swing.JButton();
         listeEtudiantLabel = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel20 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        consulterButton = new javax.swing.JButton();
+        annulerButton1 = new javax.swing.JButton();
+        sauvegarderButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         EditMenu = new javax.swing.JMenu();
@@ -71,7 +70,7 @@ public class B_ListeUE extends javax.swing.JFrame {
 
         InsButton.setBackground(new java.awt.Color(255, 191, 153));
         InsButton.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        InsButton.setForeground(new java.awt.Color(51, 51, 51));
+        InsButton.setForeground(new java.awt.Color(90, 0, 255));
         InsButton.setText("Saisie des résultats");
         InsButton.setBorderPainted(false);
         InsButton.setContentAreaFilled(false);
@@ -91,6 +90,22 @@ public class B_ListeUE extends javax.swing.JFrame {
         SearchBarTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(204, 204, 204)));
         SearchBarTextField1.setDisabledTextColor(new java.awt.Color(102, 255, 102));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel2.setText(">");
+
+        InsButton1.setBackground(new java.awt.Color(255, 191, 153));
+        InsButton1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        InsButton1.setForeground(new java.awt.Color(51, 51, 51));
+        InsButton1.setText("Liste des étudiants");
+        InsButton1.setBorderPainted(false);
+        InsButton1.setContentAreaFilled(false);
+        InsButton1.setFocusPainted(false);
+        InsButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout HeaderPanelLayout = new javax.swing.GroupLayout(HeaderPanel);
         HeaderPanel.setLayout(HeaderPanelLayout);
         HeaderPanelLayout.setHorizontalGroup(
@@ -102,6 +117,10 @@ public class B_ListeUE extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(InsButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(InsButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SearchBarTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -114,45 +133,16 @@ public class B_ListeUE extends javax.swing.JFrame {
                     .addComponent(AccueilButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(InsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addComponent(SearchBarTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchBarTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(InsButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
 
         listeEtudiantLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         listeEtudiantLabel.setForeground(new java.awt.Color(51, 51, 51));
         listeEtudiantLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        listeEtudiantLabel.setText("Liste des UE");
-
-        jComboBox3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox3.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mention", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
-            }
-        });
-
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parcours", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Niveau", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel20.setText("Trier par");
+        listeEtudiantLabel.setText("Liste des étudiants");
 
         jTable4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jTable4.setForeground(new java.awt.Color(51, 51, 51));
@@ -161,21 +151,32 @@ public class B_ListeUE extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Code de l'UE", "Nom de l'UE", "Niveau", "Mention", "Parcours"
+                "N° étudiant", "Nom de l'étudiant", "Prénom de l'étudiant", "Mention de l'ue"
             }
         ));
         jTable4.setGridColor(new java.awt.Color(204, 204, 204));
         jTable4.setSelectionBackground(new java.awt.Color(0, 165, 255));
         jScrollPane4.setViewportView(jTable4);
 
-        consulterButton.setBackground(new java.awt.Color(255, 90, 0));
-        consulterButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        consulterButton.setForeground(new java.awt.Color(51, 51, 51));
-        consulterButton.setText("Consulter");
-        consulterButton.setFocusPainted(false);
-        consulterButton.addActionListener(new java.awt.event.ActionListener() {
+        annulerButton1.setBackground(new java.awt.Color(255, 0, 38));
+        annulerButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        annulerButton1.setForeground(new java.awt.Color(51, 51, 51));
+        annulerButton1.setText("Annuler");
+        annulerButton1.setFocusPainted(false);
+        annulerButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterButtonActionPerformed(evt);
+                annulerButton1ActionPerformed(evt);
+            }
+        });
+
+        sauvegarderButton.setBackground(new java.awt.Color(0, 255, 90));
+        sauvegarderButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        sauvegarderButton.setForeground(new java.awt.Color(51, 51, 51));
+        sauvegarderButton.setText("Sauvegarder");
+        sauvegarderButton.setFocusPainted(false);
+        sauvegarderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sauvegarderButtonActionPerformed(evt);
             }
         });
 
@@ -188,20 +189,14 @@ public class B_ListeUE extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(listeEtudiantLabel))
                 .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(consulterButton)
-                .addGap(370, 370, 370))
+                .addComponent(annulerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136)
+                .addComponent(sauvegarderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(214, 214, 214))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,16 +205,12 @@ public class B_ListeUE extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(listeEtudiantLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(consulterButton)
-                .addGap(23, 23, 23))
+                    .addComponent(sauvegarderButton)
+                    .addComponent(annulerButton1))
+                .addGap(26, 26, 26))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -270,21 +261,17 @@ public class B_ListeUE extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InsButtonActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
-
-    private void consulterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterButtonActionPerformed
+    private void sauvegarderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sauvegarderButtonActionPerformed
         
-    }//GEN-LAST:event_consulterButtonActionPerformed
+    }//GEN-LAST:event_sauvegarderButtonActionPerformed
+
+    private void InsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsButton1ActionPerformed
+
+    private void annulerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulerButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_annulerButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,20 +290,21 @@ public class B_ListeUE extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B_ListeEtudiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B_ListeEtudiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B_ListeEtudiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B_ListeEtudiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new B_ListeUE().setVisible(true);
+                new B_ListeEtudiants().setVisible(true);
             }
         });
     }
@@ -328,18 +316,17 @@ public class B_ListeUE extends javax.swing.JFrame {
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JMenu HelpMenu1;
     private javax.swing.JButton InsButton;
+    private javax.swing.JButton InsButton1;
     private javax.swing.JTextField SearchBarTextField1;
     private javax.swing.JMenu ViewMenu2;
-    private javax.swing.JButton consulterButton;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton annulerButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable4;
     private javax.swing.JLabel listeEtudiantLabel;
+    private javax.swing.JButton sauvegarderButton;
     // End of variables declaration//GEN-END:variables
 }

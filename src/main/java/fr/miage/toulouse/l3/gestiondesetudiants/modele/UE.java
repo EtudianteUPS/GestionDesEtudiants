@@ -62,6 +62,7 @@ public class UE {
         this.prerequis_ue = prerequis_ue;
     }
     
+   
     public String getId_Ue(){
         return this.id_ue;
     }

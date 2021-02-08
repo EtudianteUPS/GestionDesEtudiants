@@ -89,7 +89,7 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
 
         AccueilButton.setBackground(new java.awt.Color(255, 191, 153));
         AccueilButton.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        AccueilButton.setForeground(new java.awt.Color(0, 0, 255));
+        AccueilButton.setForeground(new java.awt.Color(90, 0, 255));
         AccueilButton.setText("Accueil");
         AccueilButton.setBorderPainted(false);
         AccueilButton.setContentAreaFilled(false);
@@ -102,7 +102,7 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
 
         InsButton.setBackground(new java.awt.Color(255, 191, 153));
         InsButton.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        InsButton.setForeground(new java.awt.Color(0, 0, 255));
+        InsButton.setForeground(new java.awt.Color(90, 0, 255));
         InsButton.setText("Inscription");
         InsButton.setBorderPainted(false);
         InsButton.setContentAreaFilled(false);

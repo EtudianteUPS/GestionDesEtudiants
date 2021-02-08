@@ -5,9 +5,14 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.BureauController;
 import fr.miage.toulouse.l3.gestiondesetudiants.controller.DirecteurController;
 import fr.miage.toulouse.l3.gestiondesetudiants.controller.SecretaireController;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.UE;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.ValeurCreditErronee;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -184,11 +189,29 @@ public class Accueil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Permet de charger la vue et les données du bureau des examens
+     * @param evt 
+     */
     private void BurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BurButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            /* création vue */
+            B_ListeUE blue = new B_ListeUE();
+            /*création Modele*/
+            UE ue = new UE("S1InfMIASHSMIAGE","Informatique",6);
+            /* Création du controller*/
+            BureauController bc = new BureauController(ue, this, blue);
+
+            bc.initController();
+        } catch (ValeurCreditErronee ex) {
+            Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BurButtonActionPerformed
 
+    /**
+     * Permet de charger la vue et les données du secrétariat
+     * @param evt 
+     */
     private void SecButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecButtonActionPerformed
         /* création vue */
         S_DossierEtudiant sde = new S_DossierEtudiant();
