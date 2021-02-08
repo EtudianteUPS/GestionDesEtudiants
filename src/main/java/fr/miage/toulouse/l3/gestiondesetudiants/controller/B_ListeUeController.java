@@ -5,19 +5,19 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.UE;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.D_DossierEtudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.B_ListeUE;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * controler de la partie de l'application dédiée au directeur d'étude
+ *
  * @author SophiaNachin
  */
-public class DirecteurController  {
-    Etudiant e;
-    D_DossierEtudiant dde;
+public class B_ListeUeController {
+    UE ue;
+    B_ListeUE blue;
     Accueil accueil;
     
     /**
@@ -26,10 +26,10 @@ public class DirecteurController  {
      * @param accueil
      * @param dde 
      */
-    public DirecteurController(Etudiant e, Accueil accueil, D_DossierEtudiant dde){
-        this.e = e;
+    public B_ListeUeController(UE ue, Accueil accueil, B_ListeUE blue){
+        this.ue = ue;
         this.accueil = accueil;
-        this.dde = dde;
+        this.blue = blue;
         initView();
     }
    
@@ -37,20 +37,16 @@ public class DirecteurController  {
      * Initialisation de la vue à charger
      */
     private void initView(){
-        this.dde.getnumEtudiantLabel().setText(String.valueOf(this.e.getIdEtudiant()));
-        this.dde.getNomLabel().setText(this.e.getNom());
-        this.dde.getPrenomLabel().setText(this.e.getPrenom());
-        this.dde.getMentionLabel().setText(String.valueOf(this.e.getMention()));
-        this.dde.getParcoursLabel().setText(String.valueOf(this.e.getParcours()));
+        
     }
     
     /**
      * Dès que le bouton DirButton est déclenché, on affiche la nouvelle vue et on ferme l'ancienne
      */
     public void initController(){
-        this.accueil.getDirButton().addActionListener(new ActionListener() {
+        this.accueil.getBurButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                dde.setVisible(true);
+                blue.setVisible(true);
                 accueil.dispose();
             }
         });

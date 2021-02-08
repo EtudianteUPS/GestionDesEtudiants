@@ -24,8 +24,8 @@ public class UE {
     private String id_ue;
     private String nom_ue;
     private int credit_ue;
-    private String nom_mention;
-    private String nom_parcours;
+    private Mention mention;
+    private Parcours parcours;
     private ArrayList<UE> prerequis_ue;   
     
     /**
@@ -55,10 +55,10 @@ public class UE {
      * @param prerequis_ue
      * @throws ValeurCreditErronee 
      */
-    public UE(String id_ue, String nom_ue, int credit_ue, String nom_mention, String nom_parcours, ArrayList<UE> prerequis_ue) throws ValeurCreditErronee{
+    public UE(String id_ue, String nom_ue, int credit_ue, Mention mention, Parcours parcours, ArrayList<UE> prerequis_ue) throws ValeurCreditErronee{
         this(id_ue,nom_ue, credit_ue);
-        this.nom_mention = nom_mention;
-        this.nom_parcours = nom_parcours;
+        this.mention = mention;
+        this.parcours = parcours;
         this.prerequis_ue = prerequis_ue;
     }
     
@@ -74,13 +74,16 @@ public class UE {
     public int getCredit_Ue(){
         return this.credit_ue;
     }
+
+    public Mention getMention() {
+        return mention;
+    }
+
+    public Parcours getParcours() {
+        return parcours;
+    }
     
-    public String getNom_mention(){
-        return this.nom_mention;
-    }
-    public String getNom_parcours(){
-        return this.nom_parcours;
-    }
+    
     public ArrayList<UE> getPrerequis_Ue(){
         return this.prerequis_ue;
     }
@@ -88,7 +91,7 @@ public class UE {
      * @return les caractéristiques de l'ue et, si elle a des prerequis, la liste de ses prerequis
      */
     public String toString(){
-        String str = this.id_ue + "," + this.nom_ue + "," + this.credit_ue + "," + this.nom_mention + "," + this.nom_parcours;        
+        String str = this.id_ue + "," + this.nom_ue + "," + this.credit_ue + "," + this.mention + "," + this.parcours;        
         if (this.prerequis_ue != null){
             str += ",'" ;
             for (UE ue : this.prerequis_ue) {
@@ -122,7 +125,7 @@ public class UE {
         
         //Instantiating the CSVWriter class
         
-        CSVWriter writer = new CSVWriter(new FileWriter("donnees/listeUEMiashsMiage.csv"));
+        /*CSVWriter writer = new CSVWriter(new FileWriter("donnees/listeUEMiashsMiage.csv"));
         try{
             String[] title = {"idUE","Nom UE","Crédits","Mention","Parcours"};
             UE S1UE1 = new UE("S1Inf","Informatique",6,"MIASHS","MIAGE",null);
@@ -182,6 +185,6 @@ public class UE {
         }
         catch(ValeurCreditErronee v){
             v.printStackTrace();
-        }
+        }*/
     }
 }

@@ -5,48 +5,53 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.UE;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.B_ListeUE;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.D_DossierEtudiant;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableModel;
+
 
 /**
  *
- * @author SophiaNachin
+ * @author FatimatouCisse
  */
-public class BureauController {
-    UE ue;
-    B_ListeUE blue;
+
+public class D_ListeEtudiantsController  {
     Accueil accueil;
+    JTableEtudiants listeEtudiants;
     
     /**
      * On transmet le modèle etudiant, et la vue D_DossierEtudiant 
      * @param e
-     * @param accueil
+     * @param 
      * @param dde 
      */
-    public BureauController(UE ue, Accueil accueil, B_ListeUE blue){
-        this.ue = ue;
+    public D_ListeEtudiantsController(Accueil accueil, JTableEtudiants listeEtudiants ){
+       
+        this.listeEtudiants = listeEtudiants;
         this.accueil = accueil;
-        this.blue = blue;
-        initView();
+        //initView();
     }
    
     /**
      * Initialisation de la vue à charger
      */
-    private void initView(){
+    /*private void initView(){
+       
         
-    }
+    }*/
     
     /**
      * Dès que le bouton DirButton est déclenché, on affiche la nouvelle vue et on ferme l'ancienne
      */
     public void initController(){
-        this.accueil.getBurButton().addActionListener(new ActionListener() {
+        this.accueil.getDirButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                blue.setVisible(true);
+                listeEtudiants.setVisible(true);
                 accueil.dispose();
             }
         });

@@ -1,22 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.BureauController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.DirecteurController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.B_ListeUeController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.D_DossierEtudiantController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.D_ListeEtudiantsController;
 import fr.miage.toulouse.l3.gestiondesetudiants.controller.SecretaireController;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.UE;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.ValeurCreditErronee;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
 
 /**
  *
- * @author FatimatouCisse
+ * @author FatimatouCisse, SophiaNachin
  */
 public class Accueil extends javax.swing.JFrame {
         
@@ -200,7 +197,7 @@ public class Accueil extends javax.swing.JFrame {
             /*création Modele*/
             UE ue = new UE("S1InfMIASHSMIAGE","Informatique",6);
             /* Création du controller*/
-            BureauController bc = new BureauController(ue, this, blue);
+            B_ListeUeController bc = new B_ListeUeController(ue, this, blue);
 
             bc.initController();
         } catch (ValeurCreditErronee ex) {
@@ -214,15 +211,15 @@ public class Accueil extends javax.swing.JFrame {
      */
     private void SecButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecButtonActionPerformed
         /* création vue */
-        S_DossierEtudiant sde = new S_DossierEtudiant();
+        //S_DossierEtudiant sde = new S_DossierEtudiant();
            
         /*création Modele*/
-        Etudiant e1 = new Etudiant(21810700,"Nachin","Sophia",1,1);
+        //Etudiant e1 = new Etudiant("Nachin","Sophia","21810700",1,1);
 
         /* Création du controller*/
-        SecretaireController sc = new SecretaireController(e1, this,sde);
+        //SecretaireController sc = new SecretaireController(e1, this,sde);
         
-        sc.initController();
+        //sc.initController();
     }//GEN-LAST:event_SecButtonActionPerformed
 
     /**
@@ -231,15 +228,15 @@ public class Accueil extends javax.swing.JFrame {
      */
     private void DirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DirButtonActionPerformed
         /* création vue */
-        D_DossierEtudiant dde = new D_DossierEtudiant();
+        JTableEtudiants jte = new JTableEtudiants();
+        
            
         /*création Modele*/
-        Etudiant e1 = new Etudiant(21810700,"Nachin","Sophia",1,1);
+        //Etudiant e1 = new Etudiant(21810700,"Nachin","Sophia",1,1);
 
         /* Création du controller*/
-        DirecteurController dc = new DirecteurController(e1, this, dde);
-        
-        dc.initController();
+        D_ListeEtudiantsController dle = new D_ListeEtudiantsController(this, jte);
+        dle.initController();
         /* Liaison bouton directeur au controller */
         //accueil.getDirButton().addActionListener(ec); /* prend les données du modèle et l'affiche dans la vue */
     }//GEN-LAST:event_DirButtonActionPerformed

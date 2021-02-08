@@ -5,6 +5,9 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.ListeUeEnCoursCsv;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -13,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import javax.swing.JTable;
 
 
 /**
@@ -20,13 +24,28 @@ import org.apache.commons.csv.CSVRecord;
  * @author SophiaNachin
  */
 public class D_DossierEtudiant extends javax.swing.JFrame {   
-    
+    private ListeUeEnCoursCsv myListEnCours;
+    private Object[][] data;
+    private String [] columnNames = {"Code id de l'UE", "Nom UE", "Crédits ECTS"};
+    DefaultTableModel tableModel;
+    public static String numEtudiant;
     /**
      * Creates new form DS_DossierEtudiant
      */
     public D_DossierEtudiant() {
-        initComponents();
+        super("Dossier étudiant");
         this.setLocationRelativeTo(null); // center the frame
+        myListEnCours = new ListeUeEnCoursCsv();
+        
+        String str = "donnees/" + numEtudiant + "_ListeUeEnCours.csv";
+        myListEnCours.readFromCSV(str);
+        data = myListEnCours.convert2Data();
+        tableModel = new DefaultTableModel(data, columnNames);
+        initComponents();
+       
+        //UeEnCoursjTable = new JTable(tableModel);
+        //association data,columnsName dans initComponents()
+        //ajout de mouseListener dans initComponents()        
     }
 
     
@@ -67,7 +86,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         UeEnCoursjTable = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
-        importButton = new javax.swing.JButton();
         UeDisponibleJTabbedPane = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -76,12 +94,10 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
-        importButton3 = new javax.swing.JButton();
         UeValideeJTabbedPane = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         UeValideejTable = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
-        importButton2 = new javax.swing.JButton();
         listeUELabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
@@ -314,35 +330,25 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         UeEnCoursJTabbedPane.setBackground(new java.awt.Color(255, 255, 255));
         UeEnCoursJTabbedPane.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
-        UeEnCoursjTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        UeEnCoursjTable.setForeground(new java.awt.Color(255, 255, 255));
-        UeEnCoursjTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
-            },
+        UeEnCoursjTable.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        UeEnCoursjTable.setForeground(new java.awt.Color(51, 51, 51));
+        UeEnCoursjTable.setModel(
+            tableModel
+            /*data,
             new String [] {
-                "Code id de l'UE", "Nom UE", "Crédits ECTS", "Mention", "Parcours"
-            }
-        ));
-        UeEnCoursjTable.setGridColor(new java.awt.Color(255, 51, 0));
-        UeEnCoursjTable.setSelectionBackground(new java.awt.Color(255, 191, 153));
-        UeEnCoursjTable.setSelectionForeground(new java.awt.Color(255, 102, 255));
+                "Code id de l'UE", "Nom UE", "Crédits ECTS"
+            }*/
+        );
+        UeEnCoursjTable.setGridColor(new java.awt.Color(255, 255, 255));
+        UeEnCoursjTable.setSelectionBackground(new java.awt.Color(0, 153, 204));
+        UeEnCoursjTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane3.setViewportView(UeEnCoursjTable);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setText("2020-2021 - 3ème année - premier semestre");
-
-        importButton.setBackground(new java.awt.Color(255, 102, 51));
-        importButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        importButton.setForeground(new java.awt.Color(51, 51, 51));
-        importButton.setText("Importer les données");
-        importButton.setFocusPainted(false);
-        importButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout UeEnCoursJTabbedPaneLayout = new javax.swing.GroupLayout(UeEnCoursJTabbedPane);
         UeEnCoursJTabbedPane.setLayout(UeEnCoursJTabbedPaneLayout);
@@ -354,19 +360,16 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
                     .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
                         .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(importButton)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         UeEnCoursJTabbedPaneLayout.setVerticalGroup(
             UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UeEnCoursJTabbedPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(UeEnCoursJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(importButton)
-                    .addComponent(jLabel18))
+                .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -422,17 +425,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
             }
         });
 
-        importButton3.setBackground(new java.awt.Color(255, 102, 51));
-        importButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        importButton3.setForeground(new java.awt.Color(51, 51, 51));
-        importButton3.setText("Importer les données");
-        importButton3.setFocusPainted(false);
-        importButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout UeDisponibleJTabbedPaneLayout = new javax.swing.GroupLayout(UeDisponibleJTabbedPane);
         UeDisponibleJTabbedPane.setLayout(UeDisponibleJTabbedPaneLayout);
         UeDisponibleJTabbedPaneLayout.setHorizontalGroup(
@@ -451,8 +443,7 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(importButton3)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         UeDisponibleJTabbedPaneLayout.setVerticalGroup(
@@ -464,10 +455,9 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(importButton3))
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -496,17 +486,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setText("2020-2021 - 3ème année - UE validées");
 
-        importButton2.setBackground(new java.awt.Color(255, 102, 51));
-        importButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        importButton2.setForeground(new java.awt.Color(51, 51, 51));
-        importButton2.setText("Importer les données");
-        importButton2.setFocusPainted(false);
-        importButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout UeValideeJTabbedPaneLayout = new javax.swing.GroupLayout(UeValideeJTabbedPane);
         UeValideeJTabbedPane.setLayout(UeValideeJTabbedPaneLayout);
         UeValideeJTabbedPaneLayout.setHorizontalGroup(
@@ -517,19 +496,16 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
                     .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
                         .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(importButton2)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         UeValideeJTabbedPaneLayout.setVerticalGroup(
             UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UeValideeJTabbedPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(UeValideeJTabbedPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(importButton2))
+                .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -639,23 +615,11 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
-    private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
-        
-    }//GEN-LAST:event_importButtonActionPerformed
-
     private void AccueilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccueilButtonActionPerformed
         this.dispose();
         Accueil acc = new Accueil();
         acc.setVisible(true);
     }//GEN-LAST:event_AccueilButtonActionPerformed
-
-    private void importButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_importButton2ActionPerformed
-
-    private void importButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_importButton3ActionPerformed
     
     
     public javax.swing.JLabel getnumEtudiantLabel(){
@@ -732,9 +696,6 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
     private javax.swing.JTable UeValideejTable;
     private javax.swing.JMenu ViewMenu2;
     private javax.swing.JButton VisConButton;
-    private javax.swing.JButton importButton;
-    private javax.swing.JButton importButton2;
-    private javax.swing.JButton importButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -766,4 +727,5 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
     private javax.swing.JLabel titleParcoursLabel;
     private javax.swing.JLabel titlePrenomLabel;
     // End of variables declaration//GEN-END:variables
+
 }
