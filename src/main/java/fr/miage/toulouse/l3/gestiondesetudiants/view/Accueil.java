@@ -1,16 +1,16 @@
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.B_ListeUeController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.DS_DossierEtudiantController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.DS_ListeEtudiantsController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.BureauExamenListeUeController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.DirectSecretDossierEtudiantController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.DirectSecretListeEtudiantsController;
 
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.UE;
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.ValeurCreditErronee;
+import fr.miage.toulouse.l3.gestiondesetudiants.exceptions.ValeurCreditErronee;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.S_JTableEtudiants;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.SecretJTableEtudiants;
 
 /**
  *
@@ -193,10 +193,10 @@ public class Accueil extends javax.swing.JFrame {
      */
     private void BurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BurButtonActionPerformed
         /* création vue */
-        B_ListeUE blue = new B_ListeUE();
+        BureauExamenListeUE blue = new BureauExamenListeUE();
         
         /* Création du controller*/
-        B_ListeUeController blu = new B_ListeUeController(this, blue);
+        BureauExamenListeUeController blu = new BureauExamenListeUeController(this, blue);
         blu.initController();
     }//GEN-LAST:event_BurButtonActionPerformed
 
@@ -206,10 +206,10 @@ public class Accueil extends javax.swing.JFrame {
      */
     private void SecButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecButtonActionPerformed
         /* création vue */
-        S_JTableEtudiants sjte = new S_JTableEtudiants();
+        SecretJTableEtudiants sjte = new SecretJTableEtudiants();
         
         /* Création du controller*/
-        DS_ListeEtudiantsController dle = new DS_ListeEtudiantsController(this, sjte);
+        DirectSecretListeEtudiantsController dle = new DirectSecretListeEtudiantsController(this, sjte);
         dle.initController();
     }//GEN-LAST:event_SecButtonActionPerformed
 
@@ -226,7 +226,7 @@ public class Accueil extends javax.swing.JFrame {
         //Etudiant e1 = new Etudiant(21810700,"Nachin","Sophia",1,1);
 
         /* Création du controller*/
-        DS_ListeEtudiantsController dle = new DS_ListeEtudiantsController(this, jte);
+        DirectSecretListeEtudiantsController dle = new DirectSecretListeEtudiantsController(this, jte);
         dle.initController();
         /* Liaison bouton directeur au controller */
         //accueil.getDirButton().addActionListener(ec); /* prend les données du modèle et l'affiche dans la vue */

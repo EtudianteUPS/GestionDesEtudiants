@@ -6,9 +6,9 @@
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.S_JTableEtudiants;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.SecretJTableEtudiants;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.D_DossierEtudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.DirectDossierEtudiant;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ListSelectionEvent;
@@ -21,28 +21,28 @@ import javax.swing.table.TableModel;
  * @author FatimatouCisse
  */
 
-public class DS_ListeEtudiantsController  {
+public class DirectSecretListeEtudiantsController  {
     Accueil accueil;
     JTableEtudiants listeEtudiants;
-    S_JTableEtudiants S_listeEtudiants;
+    SecretJTableEtudiants sListeEtudiants;
     
     
     /**
-     * On transmet le modèle etudiant, et la vue D_DossierEtudiant 
+     * On transmet le modèle etudiant, et la vue DirectDossierEtudiant 
      * @param e
      * @param 
      * @param dde 
      */
-    public DS_ListeEtudiantsController(Accueil accueil, JTableEtudiants listeEtudiants ){
+    public DirectSecretListeEtudiantsController(Accueil accueil, JTableEtudiants listeEtudiants ){
        
         this.listeEtudiants = listeEtudiants;
         this.accueil = accueil;
         //initView();
     }
     
-    public DS_ListeEtudiantsController(Accueil accueil, S_JTableEtudiants S_listeEtudiants ){
+    public DirectSecretListeEtudiantsController(Accueil accueil, SecretJTableEtudiants sListeEtudiants ){
        
-        this.S_listeEtudiants = S_listeEtudiants;
+        this.sListeEtudiants = sListeEtudiants;
         this.accueil = accueil;
         //initView();
     }
@@ -68,7 +68,7 @@ public class DS_ListeEtudiantsController  {
         
         this.accueil.getSecButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                S_listeEtudiants.setVisible(true);
+                sListeEtudiants.setVisible(true);
                 accueil.dispose();
             }
         });

@@ -5,6 +5,7 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.modele;
 
+import fr.miage.toulouse.l3.gestiondesetudiants.exceptions.ValeurCreditErronee;
 import java.util.ArrayList;
 import java.io.*; //File,FileReader,FileNotFoundException,BufferedReader,IOException
 import java.util.logging.Level;

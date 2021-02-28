@@ -60,7 +60,7 @@ public class ListeEtudiantsCsv {
           data[i][0] = etudiants.get(i).getNom();
           data[i][1] = etudiants.get(i).getPrenom();
           data[i][2] = etudiants.get(i).getNumeroEt();
-          data[i][3] = etudiants.get(i).mention.getIntitule_mention();
+          data[i][3] = etudiants.get(i).mention.getIntituleMention();
           data[i][4] = etudiants.get(i).parcours.getIntitule_parcours();
        }
        return data;

@@ -1,6 +1,6 @@
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.DS_ListeEtudiantsModele;
+import fr.miage.toulouse.l3.gestiondesetudiants.modele.DirectSecretListeEtudiantsModele;
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -30,16 +30,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author FatimatouCisse
  */
-public class DS_ListeEtudiants extends JFrame {
+public class DirectSecretListeEtudiants extends JFrame {
     /**
-     * Creates new form DS_ListeEtudiants
+     * Creates new form DirectSecretListeEtudiants
      */
     private JTable jTable;
     private JButton openCSV;
     private JFileChooser fileChooser;
     private JToolBar toolBar;
-    DS_ListeEtudiantsModele etudiantsModele;
-    public DS_ListeEtudiants() throws HeadlessException {
+    DirectSecretListeEtudiantsModele etudiantsModele;
+    public DirectSecretListeEtudiants() throws HeadlessException {
         this.setVisible(true);
         this.setBounds(100, 100, 950, 650);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,7 +61,7 @@ public class DS_ListeEtudiants extends JFrame {
         jTable = new JTable();
         this.add(new JScrollPane(jTable), BorderLayout.CENTER);
          
-        etudiantsModele = new DS_ListeEtudiantsModele();
+        etudiantsModele = new DirectSecretListeEtudiantsModele();
         jTable.setModel(etudiantsModele);
         
         etudiantsModele.fireTableDataChanged();
@@ -72,7 +72,7 @@ public class DS_ListeEtudiants extends JFrame {
         openCSV.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int i = fileChooser.showOpenDialog(DS_ListeEtudiants.this);
+                int i = fileChooser.showOpenDialog(DirectSecretListeEtudiants.this);
                 if (i == JFileChooser.APPROVE_OPTION){
                     System.out.println (".fil Choosed");
                     File file = fileChooser.getSelectedFile();
@@ -80,7 +80,7 @@ public class DS_ListeEtudiants extends JFrame {
                     ArrayList<String[]> all = readCSV(file);
                     String[] cols = all.get(0);
                     
-                    DS_ListeEtudiantsModele etudiantsModele = new DS_ListeEtudiantsModele(all, cols);
+                    DirectSecretListeEtudiantsModele etudiantsModele = new DirectSecretListeEtudiantsModele(all, cols);
                     jTable.setModel(etudiantsModele);
                     
                     
@@ -123,7 +123,7 @@ public class DS_ListeEtudiants extends JFrame {
     
     /*public static void main(String args[]) 
     {
-        DS_ListeEtudiants listeEtudiants = new DS_ListeEtudiants();
+        DirectSecretListeEtudiants listeEtudiants = new DirectSecretListeEtudiants();
 
     }*/
 

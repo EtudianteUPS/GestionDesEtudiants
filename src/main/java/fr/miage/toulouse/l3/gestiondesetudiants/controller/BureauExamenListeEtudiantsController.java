@@ -5,22 +5,22 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.view.B_ListeEtudiants;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.B_ListeUE;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.BureauExamenListeEtudiants;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.BureauExamenListeUE;
 
 /**
  *
  * @author FatimatouCisse
  */
 
-public class B_ListeEtudiantsController  {
-    B_ListeEtudiants listeEtudiants;
-    B_ListeUE listeUe;
+public class BureauExamenListeEtudiantsController  {
+    BureauExamenListeEtudiants listeEtudiants;
+    BureauExamenListeUE listeUe;
         
     /**
      * On transmet le modèle etudiant, et la vue D_DossierEtudiant 
      */
-    public B_ListeEtudiantsController(B_ListeUE listeUe, B_ListeEtudiants listeEtudiants ){
+    public BureauExamenListeEtudiantsController(BureauExamenListeUE listeUe, BureauExamenListeEtudiants listeEtudiants ){
        
         this.listeEtudiants = listeEtudiants;
         this.listeUe = listeUe;

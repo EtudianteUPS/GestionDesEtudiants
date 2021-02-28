@@ -8,16 +8,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author FatimatouCisse
  */
-public class DS_ListeEtudiantsModele extends DefaultTableModel {
+public class DirectSecretListeEtudiantsModele extends DefaultTableModel {
     private ArrayList<String[]> values;
     private String[] columns;
 
-    public DS_ListeEtudiantsModele(ArrayList<String[]> values, String[] columns) {
+    public DirectSecretListeEtudiantsModele(ArrayList<String[]> values, String[] columns) {
         this.values = values;
         this.columns = columns;
     }
 
-    public DS_ListeEtudiantsModele() {
+    public DirectSecretListeEtudiantsModele() {
     }
 
     

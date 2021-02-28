@@ -5,6 +5,7 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.modele;
 
+import fr.miage.toulouse.l3.gestiondesetudiants.exceptions.ValeurCreditErronee;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.Mention;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.Parcours;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class ListeUeDisponibleCsv {
           data[i][0] = ueDispo.get(i).getId_Ue();
           data[i][1] = ueDispo.get(i).getNom_Ue();
           data[i][2] = ueDispo.get(i).getCredit_Ue();
-          data[i][3] = ueDispo.get(i).getMention().getIntitule_mention();
+          data[i][3] = ueDispo.get(i).getMention().getIntituleMention();
           data[i][4] = ueDispo.get(i).getParcours().getIntitule_parcours();
        }
        return data;

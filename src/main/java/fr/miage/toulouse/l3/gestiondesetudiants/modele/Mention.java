@@ -13,24 +13,24 @@ import java.util.ArrayList;
  */
 public class Mention {
     
-    private String intitule_mention; 
-    private ArrayList<Parcours> parcours_associés; 
-    private ArrayList <UE> ue_dispo;   
+    private String intituleMention; 
+    private ArrayList<Parcours> parcoursAssocies; 
+    private ArrayList <UE> ueDispo;   
 
     /**Initiation d'une mention 
-     * @param id_mention = numéro de la mention 
-     * @param intitule_mention = intitulé de la mention
-     * * @param intitule_mention = intitulé de la mention
+     * @param idMention = numéro de la mention 
+     * @param intituleMention = intitulé de la mention
+ * @param intituleMention = intitulé de la mention
      */
     
-      public Mention (String intitule_mention ) //ArrayList<Parcours > parcours_associés
+      public Mention (String intituleMention ) //ArrayList<Parcours > parcoursAssocies
       {
-        this.intitule_mention = intitule_mention;
-        //this.parcours_associés = parcours_associés;
+        this.intituleMention = intituleMention;
+        //this.parcoursAssocies = parcoursAssocies;
       }
 
-    public String getIntitule_mention() {
-        return intitule_mention;
+    public String getIntituleMention() {
+        return intituleMention;
     }
     
     

@@ -5,6 +5,7 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.modele;
 
+import fr.miage.toulouse.l3.gestiondesetudiants.exceptions.ValeurCreditErronee;
 import com.opencsv.CSVWriter;
 
 import java.io.File;

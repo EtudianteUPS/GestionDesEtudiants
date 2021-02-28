@@ -2,7 +2,7 @@ package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
 import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.S_DossierEtudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.SecretDossierEtudiant;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

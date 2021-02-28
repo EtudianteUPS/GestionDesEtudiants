@@ -21,12 +21,12 @@ import org.apache.commons.csv.CSVRecord;
  *
  * @author SophiaNachin
  */
-public class S_DossierEtudiant extends javax.swing.JFrame {   
+public class SecretDossierEtudiant extends javax.swing.JFrame {   
     
     /**
      * Creates new form DS_DossierEtudiant
      */
-    public S_DossierEtudiant() {
+    public SecretDossierEtudiant() {
         initComponents();
         this.setLocationRelativeTo(null); // center the frame
     }
@@ -552,14 +552,20 @@ public class S_DossierEtudiant extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(S_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecretDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(S_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecretDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(S_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecretDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(S_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecretDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

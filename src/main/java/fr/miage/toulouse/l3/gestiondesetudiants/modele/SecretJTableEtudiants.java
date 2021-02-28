@@ -5,9 +5,9 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.modele;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.DS_DossierEtudiantController;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.D_DossierEtudiant;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.S_DossierEtudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.DirectSecretDossierEtudiantController;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.DirectDossierEtudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.SecretDossierEtudiant;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 import javax.swing.JFrame;
@@ -26,7 +26,7 @@ import javax.swing.table.TableModel;
  * @author FatimatouCisse
  */
 
-public class S_JTableEtudiants extends JFrame implements ActionListener {
+public class SecretJTableEtudiants extends JFrame implements ActionListener {
    private Object[][] data;
    private String[] columnNames = {"Nom","Prénom","Numéro d'étudiant", "Mention", "Parcours"};
    private DefaultTableModel tableModel;
@@ -34,14 +34,14 @@ public class S_JTableEtudiants extends JFrame implements ActionListener {
    private ListeEtudiantsCsv myList;
    private JLabel listeEtudiantsLabel;
 
-   public S_JTableEtudiants() {
+   public SecretJTableEtudiants() {
       super("Table Etudiants");
       initComponents(); 
       this.setLocationRelativeTo(null); // center the frame
    }
    
    
-   D_DossierEtudiant jtRowData = new D_DossierEtudiant();
+   DirectDossierEtudiant jtRowData = new DirectDossierEtudiant();
    private void initComponents(){
       
       setBounds(30,30,950,650);
@@ -95,8 +95,8 @@ public class S_JTableEtudiants extends JFrame implements ActionListener {
         String mention = model.getValueAt(index, 3).toString();
         String parcours = model.getValueAt(index, 4).toString();
         
-        S_DossierEtudiant jtRowDataS = new S_DossierEtudiant();
-        DS_DossierEtudiantController dc = new DS_DossierEtudiantController(numeroEt, jtRowDataS); 
+        SecretDossierEtudiant jtRowDataS = new SecretDossierEtudiant();
+        DirectSecretDossierEtudiantController dc = new DirectSecretDossierEtudiantController(numeroEt, jtRowDataS); 
         dc.initController();
         jtRowDataS.setVisible(true);
       

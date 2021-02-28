@@ -5,7 +5,7 @@
  */
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.B_ListeEtudiantsController;
+import fr.miage.toulouse.l3.gestiondesetudiants.controller.BureauExamenListeEtudiantsController;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.ListeUeCsv;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SophiaNachin
  */
-public class B_ListeUE extends javax.swing.JFrame {
+public class BureauExamenListeUE extends javax.swing.JFrame {
     private ListeUeCsv listeUe;
     private Object[][] data;
     private String[] columnName = {"Code de l'UE","Nom UE","Crédits ECTS", "Mention", "Parcours"};
@@ -23,7 +23,7 @@ public class B_ListeUE extends javax.swing.JFrame {
     /**
      * Creates new form B_ListeUE
      */
-    public B_ListeUE() {
+    public BureauExamenListeUE() {
         listeUe = new ListeUeCsv();
         listeUe.readFromCSV("donnees/listeUE.csv");
         data = listeUe.convert2Data();
@@ -302,8 +302,8 @@ public class B_ListeUE extends javax.swing.JFrame {
 
     private void listeUeJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listeUeJTableMouseClicked
         // TODO add your handling code here:
-        B_ListeEtudiants ble = new B_ListeEtudiants();
-        B_ListeEtudiantsController bc = new B_ListeEtudiantsController(this, ble);
+        BureauExamenListeEtudiants ble = new BureauExamenListeEtudiants();
+        BureauExamenListeEtudiantsController bc = new BureauExamenListeEtudiantsController(this, ble);
         bc.initController();
     }//GEN-LAST:event_listeUeJTableMouseClicked
 
@@ -329,13 +329,13 @@ public class B_ListeUE extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BureauExamenListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BureauExamenListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BureauExamenListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(B_ListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BureauExamenListeUE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -343,6 +343,13 @@ public class B_ListeUE extends javax.swing.JFrame {
         /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new B_ListeUE().setVisible(true);
+            }
+        //</editor-fold>
+
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new BureauExamenListeUE().setVisible(true);
             }
         });*/
     }

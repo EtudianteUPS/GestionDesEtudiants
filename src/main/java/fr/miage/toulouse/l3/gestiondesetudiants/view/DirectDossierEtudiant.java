@@ -23,7 +23,7 @@ import javax.swing.JTable;
  *
  * @author SophiaNachin
  */
-public class D_DossierEtudiant extends javax.swing.JFrame {   
+public class DirectDossierEtudiant extends javax.swing.JFrame {   
     //private ListeUeEnCoursCsv myListEnCours;
     //private Object[][] data;
     //private String [] columnNames = {"Code id de l'UE", "Nom UE", "Crédits ECTS"};
@@ -32,7 +32,7 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
     /**
      * Creates new form DS_DossierEtudiant
      */
-    public D_DossierEtudiant() {
+    public DirectDossierEtudiant() {
         super("Dossier étudiant");
         this.setLocationRelativeTo(null); // center the frame
         initComponents();
@@ -663,14 +663,16 @@ public class D_DossierEtudiant extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(D_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DirectDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(D_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DirectDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(D_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DirectDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(D_DossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DirectDossierEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

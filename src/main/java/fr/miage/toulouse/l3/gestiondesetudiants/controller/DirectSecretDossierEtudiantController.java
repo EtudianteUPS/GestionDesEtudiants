@@ -9,8 +9,8 @@ import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.ListeUeDisponibleCsv;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.ListeUeEnCoursCsv;
 import fr.miage.toulouse.l3.gestiondesetudiants.modele.ListeUeValideeCsv;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.D_DossierEtudiant;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.S_DossierEtudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.DirectDossierEtudiant;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.SecretDossierEtudiant;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
@@ -22,10 +22,10 @@ import javax.swing.table.TableModel;
  * controler de la partie de l'application dédiée au directeur d'étude
  * @author SophiaNachin
  */
-public class DS_DossierEtudiantController  {
+public class DirectSecretDossierEtudiantController  {
     String numEtudiant;
-    D_DossierEtudiant dde;
-    S_DossierEtudiant sde;
+    DirectDossierEtudiant dde;
+    SecretDossierEtudiant sde;
     private ListeUeEnCoursCsv myListEnCours;
     private ListeUeValideeCsv myListUeValidee;
     private ListeUeDisponibleCsv myListUeDispo;
@@ -38,17 +38,17 @@ public class DS_DossierEtudiantController  {
     
     
     /**
-     * On transmet le modèle etudiant, et la vue D_DossierEtudiant 
+     * On transmet le modèle etudiant, et la vue DirectDossierEtudiant 
     
      * @param dde 
      */
-    public DS_DossierEtudiantController(String numEtudiant,D_DossierEtudiant dde){
+    public DirectSecretDossierEtudiantController(String numEtudiant,DirectDossierEtudiant dde){
         this.numEtudiant = numEtudiant;
         this.dde = dde;
         initViewD();
     }
    
-    public DS_DossierEtudiantController(String numEtudiant, S_DossierEtudiant sde){
+    public DirectSecretDossierEtudiantController(String numEtudiant, SecretDossierEtudiant sde){
         this.numEtudiant = numEtudiant;
         this.sde = sde;
         initViewS();

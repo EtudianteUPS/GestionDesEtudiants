@@ -6,7 +6,7 @@
 package fr.miage.toulouse.l3.gestiondesetudiants.controller;
 
 import fr.miage.toulouse.l3.gestiondesetudiants.view.Accueil;
-import fr.miage.toulouse.l3.gestiondesetudiants.view.B_ListeUE;
+import fr.miage.toulouse.l3.gestiondesetudiants.view.BureauExamenListeUE;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,8 +14,8 @@ import java.awt.event.ActionListener;
  *
  * @author SophiaNachin
  */
-public class B_ListeUeController {
-    B_ListeUE listeUe;
+public class BureauExamenListeUeController {
+    BureauExamenListeUE listeUe;
     Accueil accueil;
     
     /**
@@ -24,7 +24,7 @@ public class B_ListeUeController {
      * @param accueil
      * @param dde 
      */
-    public B_ListeUeController(Accueil accueil, B_ListeUE listeUe){
+    public BureauExamenListeUeController(Accueil accueil, BureauExamenListeUE listeUe){
         this.accueil = accueil;
         this.listeUe = listeUe;
         initView();
