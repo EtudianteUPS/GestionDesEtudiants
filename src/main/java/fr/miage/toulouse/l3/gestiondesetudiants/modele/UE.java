@@ -1,21 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.miage.toulouse.l3.gestiondesetudiants.modele;
 
 import fr.miage.toulouse.l3.gestiondesetudiants.exceptions.ValeurCreditErronee;
-import com.opencsv.CSVWriter;
-
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

@@ -1,30 +1,33 @@
 package fr.miage.toulouse.l3.gestiondesetudiants.view;
 
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.BureauExamenListeUeController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.DirectSecretDossierEtudiantController;
-import fr.miage.toulouse.l3.gestiondesetudiants.controller.DirectSecretListeEtudiantsController;
-
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.Etudiant;
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.UE;
-import fr.miage.toulouse.l3.gestiondesetudiants.exceptions.ValeurCreditErronee;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.JTableEtudiants;
-import fr.miage.toulouse.l3.gestiondesetudiants.modele.SecretJTableEtudiants;
-
 /**
  *
  * @author FatimatouCisse, SophiaNachin
  */
 public class Accueil extends javax.swing.JFrame {
-        
+    
+    private static Accueil instance;
+    
+    /**
+     * Singleton qui retourne l'instance 
+     * @return instance
+     */
+    public synchronized static Accueil getInstance(){
+        if (instance == null){
+            instance = new Accueil();
+        }
+        return instance;
+    }
+    
     /**
      * Creates new form Accueil
      */
-    public Accueil() {
+    private Accueil(){
+        //this.afficherPanel = AfficherPanel.getInstance();
         initComponents();
         this.setLocationRelativeTo(null); // center the frame
     }
+    
 
     /**
      * Permet d'initialiser la vue
@@ -37,9 +40,9 @@ public class Accueil extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        DirButton = new javax.swing.JButton();
-        BurButton = new javax.swing.JButton();
-        SecButton = new javax.swing.JButton();
+        directButton = new fr.miage.toulouse.l3.gestiondesetudiants.controller.DirectButton();
+        secButton = new fr.miage.toulouse.l3.gestiondesetudiants.controller.SecButton();
+        burButton = new fr.miage.toulouse.l3.gestiondesetudiants.controller.BurButton();
         jMenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         EditMenu = new javax.swing.JMenu();
@@ -48,7 +51,6 @@ public class Accueil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -70,14 +72,8 @@ public class Accueil extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,63 +85,30 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        DirButton.setBackground(new java.awt.Color(255, 122, 50));
-        DirButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        DirButton.setForeground(new java.awt.Color(255, 255, 255));
-        DirButton.setText("Directeur");
-        DirButton.setFocusPainted(false);
-        DirButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DirButtonActionPerformed(evt);
-            }
-        });
-
-        BurButton.setBackground(new java.awt.Color(255, 122, 50));
-        BurButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        BurButton.setForeground(new java.awt.Color(255, 255, 255));
-        BurButton.setText("Bureau des examens");
-        BurButton.setFocusPainted(false);
-        BurButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BurButtonActionPerformed(evt);
-            }
-        });
-
-        SecButton.setBackground(new java.awt.Color(255, 122, 50));
-        SecButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        SecButton.setForeground(new java.awt.Color(255, 255, 255));
-        SecButton.setText("Secrétaire");
-        SecButton.setFocusPainted(false);
-        SecButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SecButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(DirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SecButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(BurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(directButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(secButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(burButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(SecButton, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(directButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(secButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(burButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jMenuBar.setBackground(new java.awt.Color(255, 255, 255));
@@ -177,7 +140,7 @@ public class Accueil extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,86 +151,38 @@ public class Accueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Permet de charger la vue et les données du bureau des examens
-     * @param evt 
-     */
-    private void BurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BurButtonActionPerformed
-        /* création vue */
-        BureauExamenListeUE blue = new BureauExamenListeUE();
-        
-        /* Création du controller*/
-        BureauExamenListeUeController blu = new BureauExamenListeUeController(this, blue);
-        blu.initController();
-    }//GEN-LAST:event_BurButtonActionPerformed
-
-    /**
-     * Permet de charger la vue et les données du secrétariat
-     * @param evt 
-     */
-    private void SecButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecButtonActionPerformed
-        /* création vue */
-        SecretJTableEtudiants sjte = new SecretJTableEtudiants();
-        
-        /* Création du controller*/
-        DirectSecretListeEtudiantsController dle = new DirectSecretListeEtudiantsController(this, sjte);
-        dle.initController();
-    }//GEN-LAST:event_SecButtonActionPerformed
-
-    /**
-     * Permet de charger la vue et les données du directeur d'étude
-     * @param evt 
-     */
-    private void DirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DirButtonActionPerformed
-        /* création vue */
-        JTableEtudiants jte = new JTableEtudiants();
-        
-           
-        /*création Modele*/
-        //Etudiant e1 = new Etudiant(21810700,"Nachin","Sophia",1,1);
-
-        /* Création du controller*/
-        DirectSecretListeEtudiantsController dle = new DirectSecretListeEtudiantsController(this, jte);
-        dle.initController();
-        /* Liaison bouton directeur au controller */
-        //accueil.getDirButton().addActionListener(ec); /* prend les données du modèle et l'affiche dans la vue */
-    }//GEN-LAST:event_DirButtonActionPerformed
-
-    /**
-     *
-     * @return this.DirButton
+     * @return this.dirButton
      */
     public javax.swing.JButton getDirButton(){
-        return this.DirButton;
+        return this.directButton;
     }
     
     /**
-     * 
-     * @return this.SecButton
+     * @return this.secButton
      */
     public javax.swing.JButton getSecButton(){
-        return this.SecButton;
+        return this.secButton;
     }
     
     /**
-     * 
-     * @return this.BurButton
+     * @return this.burButton
      */
     public javax.swing.JButton getBurButton(){
-        return this.BurButton;
+        return this.burButton;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BurButton;
-    private javax.swing.JButton DirButton;
     private javax.swing.JMenu EditMenu;
     private javax.swing.JMenu FileMenu;
     private javax.swing.JMenu HelpMenu1;
-    private javax.swing.JButton SecButton;
     private javax.swing.JMenu ViewMenu2;
+    private fr.miage.toulouse.l3.gestiondesetudiants.controller.BurButton burButton;
+    private fr.miage.toulouse.l3.gestiondesetudiants.controller.DirectButton directButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private fr.miage.toulouse.l3.gestiondesetudiants.controller.SecButton secButton;
     // End of variables declaration//GEN-END:variables
 }
